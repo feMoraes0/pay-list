@@ -85,7 +85,7 @@ class Register extends StatelessWidget {
             if (snapshot.data == true) {
               return this.buildRegister(context);
             }
-            return App();
+            return AppScreen();
             break;
           default:
             return Container(
