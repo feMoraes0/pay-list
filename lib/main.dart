@@ -13,13 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Pay List',
       theme: ThemeData(
         brightness: Brightness.light,
-        fontFamily: 'Nunito',
         backgroundColor: Colors.white,
         primaryColor: Colors.redAccent,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        fontFamily: 'Nunito',
         primaryColor: Colors.redAccent,
       ),
       routes: {
