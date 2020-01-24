@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 
-
 class CreditCard extends StatelessWidget {
   final String username, total, date;
   
@@ -33,7 +32,7 @@ class CreditCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text(
-                "Pay",
+                "PayCard",
                 style: TextStyle(
                   fontSize: 17.0,
                   fontWeight: FontWeight.w300,
