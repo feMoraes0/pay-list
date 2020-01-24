@@ -30,9 +30,9 @@ class _AppScreenState extends State<AppScreen> {
     "teste 08",
     "teste 08",
   ];
-  double containerHeight = 410.0;
+  double containerHeight = 435.0;
   double limitValue = 580.0;
-  double minValue = 410.0;
+  double minValue = 435.0;
   ScrollPhysics _physics = AlwaysScrollableScrollPhysics();
   ScrollController _scrollController = ScrollController();
   GlobalKey listKey = new GlobalKey();
@@ -115,7 +115,7 @@ class _AppScreenState extends State<AppScreen> {
             boxShadow: [
               BoxShadow(
                 color: Colors.black45,
-                offset: Offset(3.0, 3.0),
+                offset: Offset(0.0, 4.0),
                 blurRadius: 5.0,
               ),
             ],
@@ -126,15 +126,6 @@ class _AppScreenState extends State<AppScreen> {
             size: 25.0,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10.0),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 16.0,
-            ),
-          ),
-        )
       ],
     );
   }
