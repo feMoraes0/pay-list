@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+        backgroundColor: Color.fromRGBO(48, 48, 48, 1.0),
         primaryColor: Colors.indigo,
       ),
       routes: {

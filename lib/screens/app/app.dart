@@ -155,7 +155,28 @@ class AppScreen extends StatelessWidget {
                   ],
                 ),
               ],
-            )
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                width: size.width,
+                height: size.height * 0.50,
+                decoration: BoxDecoration(
+                  color: theme.backgroundColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(0.0, -5.0),
+                      blurRadius: 2.0,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
