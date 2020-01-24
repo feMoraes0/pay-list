@@ -11,11 +11,10 @@ class NewPayments extends StatefulWidget {
 }
 
 class _NewPaymentsState extends State<NewPayments> {
-  final LocalFile file = LocalFile();
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _valueController = TextEditingController();
-  bool send = true;
-
+  final LocalFile file = new LocalFile();
+  final TextEditingController _titleController = new TextEditingController();
+  final TextEditingController _valueController = new TextEditingController();
+  
   void saveData() {
     String title = this._titleController.text;
     String value = this._valueController.text;
