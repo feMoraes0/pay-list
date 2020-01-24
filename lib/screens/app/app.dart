@@ -186,7 +186,15 @@ class _AppScreenState extends State<AppScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    this.buildCardOption(Icons.add, "Add", theme),
+                    Hero(
+                      tag: "new",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, "new");
+                        },
+                        child: this.buildCardOption(Icons.add, "Add", theme),
+                      ),
+                    ),
                     this.buildCardOption(Icons.visibility_off, "Hide", theme),
                     this.buildCardOption(Icons.delete_outline, "Clear", theme),
                   ],
