@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
+import 'package:pay_list/models/payment.dart';
 
 class NewPayments extends StatefulWidget {
   @override
@@ -14,21 +14,22 @@ class _NewPaymentsState extends State<NewPayments> {
   final LocalFile file = new LocalFile();
   final TextEditingController _titleController = new TextEditingController();
   final TextEditingController _valueController = new TextEditingController();
-  
+
   void saveData() {
     String title = this._titleController.text;
     String value = this._valueController.text;
     if (title == "" || value == "") return;
 
-    Map<String, dynamic> localData = Map<String, dynamic>();
-    localData['title'] = title;
-    localData['value'] = double.parse(value);
-    localData['date'] = DateFormat('d.M.y').format(DateTime.now());
+    Payment payment = new Payment(
+      title: title,
+      value: double.parse(value),
+      date: DateFormat('d.M.y').format(DateTime.now()),
+    );
 
     file.readFile().then((data) async {
       Map fileData = jsonDecode(data);
-      fileData['balance'] += localData['value'];
-      fileData['payments'].add(localData);
+      fileData['balance'] += payment.value;
+      fileData['payments'].add(payment.asJSON());
       await file.saveFile(jsonEncode(fileData));
       this._titleController.text = "";
       this._valueController.text = "";
