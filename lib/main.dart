@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         backgroundColor: Colors.white,
-        primaryColor: Colors.redAccent,
+        primaryColor: Colors.indigoAccent,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        primaryColor: Colors.redAccent,
+        primaryColor: Colors.indigo,
       ),
       routes: {
         "register": (context) => Register(),
