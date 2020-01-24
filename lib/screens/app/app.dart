@@ -1,6 +1,54 @@
 import "package:flutter/material.dart";
+import 'package:flutter/rendering.dart';
 
-class AppScreen extends StatelessWidget {
+class AppScreen extends StatefulWidget {
+  @override
+  _AppScreenState createState() => _AppScreenState();
+}
+
+class _AppScreenState extends State<AppScreen> {
+  final List<String> itens = [
+    "teste 01",
+    "teste 02",
+    "teste 03",
+    "teste 04",
+    "teste 05",
+    "teste 06",
+    "teste 07",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+    "teste 08",
+  ];
+  double containerHeight;
+
+  void initState() {
+    super.initState();
+    this.containerHeight = 200.0;
+  }
+
+  void updateContainer() {
+    setState(() {
+      this.containerHeight = 580.0;
+    });
+  }
+
+  void reduceContainer() {
+    setState(() {
+      this.containerHeight = 200.0;
+    });
+  }
+
   Widget buildCard(Size size, ThemeData theme) {
     return Container(
       width: size.width * 0.90,
@@ -107,6 +155,7 @@ class AppScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData theme = Theme.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -158,9 +207,11 @@ class AppScreen extends StatelessWidget {
             ),
             Positioned(
               bottom: 0,
-              child: Container(
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                curve: Curves.fastOutSlowIn,
                 width: size.width,
-                height: size.height * 0.50,
+                height: this.containerHeight,
                 decoration: BoxDecoration(
                   color: theme.backgroundColor,
                   boxShadow: [
@@ -174,6 +225,32 @@ class AppScreen extends StatelessWidget {
                     topLeft: Radius.circular(8.0),
                     topRight: Radius.circular(8.0),
                   ),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: this.updateContainer,
+                      child: Container(
+                        width: size.width,
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Icon(
+                          Icons.keyboard_arrow_up,
+                          size: 30.0,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: this.itens.length,
+                        itemBuilder: (context, position) {
+                          return Container(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Text(this.itens[position]),
+                          );
+                        },
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
