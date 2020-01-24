@@ -30,7 +30,6 @@ class _PayListState extends State<PayList> {
     "teste 08",
     "teste 08",
   ];
-  GlobalKey listKey = new GlobalKey();
   double containerHeight = 435.0;
   double limitValue = 580.0;
   double minValue = 435.0;
@@ -63,8 +62,7 @@ class _PayListState extends State<PayList> {
       ),
       child: NotificationListener<ScrollNotification>(
         onNotification: (scrollNotification) {
-          ScrollDirection direction =
-              this._scrollController.position.userScrollDirection;
+          ScrollDirection direction = this._scrollController.position.userScrollDirection;
           double scroll = scrollNotification.metrics.pixels;
           if (direction == ScrollDirection.reverse) {
             double futurePosition = scroll + this.containerHeight;
@@ -81,7 +79,6 @@ class _PayListState extends State<PayList> {
           return true;
         },
         child: ListView.builder(
-          key: this.listKey,
           controller: this._scrollController,
           physics: this._physics,
           itemCount: this.itens.length,
