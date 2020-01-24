@@ -30,24 +30,12 @@ class _AppScreenState extends State<AppScreen> {
     "teste 08",
     "teste 08",
   ];
-  double containerHeight;
-
-  void initState() {
-    super.initState();
-    this.containerHeight = 200.0;
-  }
-
-  void updateContainer() {
-    setState(() {
-      this.containerHeight = 580.0;
-    });
-  }
-
-  void reduceContainer() {
-    setState(() {
-      this.containerHeight = 200.0;
-    });
-  }
+  double containerHeight = 410.0;
+  double limitValue = 580.0;
+  double minValue = 410.0;
+  ScrollPhysics _physics = AlwaysScrollableScrollPhysics();
+  ScrollController _scrollController = ScrollController();
+  GlobalKey listKey = new GlobalKey();
 
   Widget buildCard(Size size, ThemeData theme) {
     return Container(
@@ -226,31 +214,38 @@ class _AppScreenState extends State<AppScreen> {
                     topRight: Radius.circular(8.0),
                   ),
                 ),
-                child: Column(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: this.updateContainer,
-                      child: Container(
-                        width: size.width,
-                        padding: const EdgeInsets.symmetric(vertical: 5.0),
-                        child: Icon(
-                          Icons.keyboard_arrow_up,
-                          size: 30.0,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: this.itens.length,
-                        itemBuilder: (context, position) {
-                          return Container(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text(this.itens[position]),
-                          );
-                        },
-                      ),
-                    )
-                  ],
+                child: NotificationListener<ScrollNotification>(
+                  onNotification: (scrollNotification) {
+                    ScrollDirection direction =
+                        this._scrollController.position.userScrollDirection;
+                    double scroll = scrollNotification.metrics.pixels;
+                    if (direction == ScrollDirection.reverse) {
+                      double futurePosition = scroll + this.containerHeight;
+                      if (futurePosition < this.limitValue) {
+                        setState(() {
+                          this.containerHeight = this.limitValue;
+                        });
+                      }
+                    } else if (direction == ScrollDirection.forward &&
+                        scroll == 0.0) {
+                      setState(() {
+                        this.containerHeight = this.minValue;
+                      });
+                    }
+                    return true;
+                  },
+                  child: ListView.builder(
+                    key: this.listKey,
+                    controller: this._scrollController,
+                    physics: this._physics,
+                    itemCount: this.itens.length,
+                    itemBuilder: (context, position) {
+                      return Container(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Text(this.itens[position]),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
