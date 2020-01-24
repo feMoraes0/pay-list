@@ -10,7 +10,7 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreenState extends State<AppScreen> {
   
-  Widget buildCardOption(IconData icon, String text, ThemeData theme) {
+  Widget buildCardOption(IconData icon, ThemeData theme) {
     return Column(
       children: <Widget>[
         Container(
@@ -93,11 +93,11 @@ class _AppScreenState extends State<AppScreen> {
                         onTap: () {
                           Navigator.pushNamed(context, "new");
                         },
-                        child: this.buildCardOption(Icons.add, "Add", theme),
+                        child: this.buildCardOption(Icons.add, theme),
                       ),
                     ),
-                    this.buildCardOption(Icons.visibility_off, "Hide", theme),
-                    this.buildCardOption(Icons.delete_outline, "Clear", theme),
+                    this.buildCardOption(Icons.visibility_off, theme),
+                    this.buildCardOption(Icons.delete_outline, theme),
                   ],
                 ),
               ],
