@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
+import 'package:pay_list/components/credit_card.dart';
 
 class AppScreen extends StatefulWidget {
   @override
@@ -36,73 +37,6 @@ class _AppScreenState extends State<AppScreen> {
   ScrollPhysics _physics = AlwaysScrollableScrollPhysics();
   ScrollController _scrollController = ScrollController();
   GlobalKey listKey = new GlobalKey();
-
-  Widget buildCard(Size size, ThemeData theme) {
-    return Container(
-      width: size.width * 0.90,
-      height: size.width * 0.45,
-      decoration: BoxDecoration(
-        color: theme.primaryColor,
-        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black45,
-            offset: Offset(3.0, 3.0),
-            blurRadius: 5.0,
-          ),
-        ],
-      ),
-      padding: const EdgeInsets.all(15.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Text(
-                "PayControl",
-                style: TextStyle(
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "500.00",
-                style: TextStyle(
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                "FERNANDO",
-                style: TextStyle(
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              Text(
-                "00/00",
-                style: TextStyle(
-                  fontSize: 17.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget buildCardOption(IconData icon, String text, ThemeData theme) {
     return Column(
@@ -172,7 +106,11 @@ class _AppScreenState extends State<AppScreen> {
                     vertical: 20.0,
                     horizontal: size.width * 0.05,
                   ),
-                  child: this.buildCard(size, theme),
+                  child: CreditCard(
+                    username: "Fernando",
+                    total: "480.86",
+                    date: "00/00",
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
