@@ -74,7 +74,7 @@ class _AppScreenState extends State<AppScreen> {
                   children: <Widget>[
                     AnimatedOpacity(
                       duration: Duration(milliseconds: 650),
-                      opacity: (this._opacity < 0.1)? 1 : 0,
+                      opacity: (this._opacity < 0.1) ? 1 : 0,
                       child: Text(
                         "Balance: 8000.00",
                         style: GoogleFonts.karla(fontSize: 22.0),
@@ -82,7 +82,8 @@ class _AppScreenState extends State<AppScreen> {
                     ),
                     IconButton(
                       icon: Icon(Icons.settings, size: 27.0),
-                      onPressed: () => Navigator.of(context).pushNamed("settings"),
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed("settings"),
                     ),
                   ],
                 ),
@@ -111,14 +112,20 @@ class _AppScreenState extends State<AppScreen> {
                         ),
                       ),
                       child: ListTile(
-                        title: Text('Item #$index', style: TextStyle(color: Colors.black),),
+                        title: Text(
+                          'Item #$index',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     );
                   } else {
                     return Container(
                       color: Colors.white,
                       child: ListTile(
-                        title: Text('Item #$index', style: TextStyle(color: Colors.black),),
+                        title: Text(
+                          'Item #$index',
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     );
                   }
@@ -129,11 +136,26 @@ class _AppScreenState extends State<AppScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(16.0),
+          ),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+        icon: Icon(
+          Icons.add,
+          size: 24.0,
+          color: Colors.white,
+        ),
+        label: Text(
+          "NEW",
+          style: GoogleFonts.karla(
+            fontSize: 20.0,
+            color: Colors.white,
+          ),
+        ),
         onPressed: () => Navigator.of(context).pushNamed("new"),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0),),),
-        backgroundColor: theme.primaryColor,
-        child: Icon(Icons.add, color: Colors.white, size: 30.0,),
       ),
     );
   }

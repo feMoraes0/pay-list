@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
@@ -96,6 +97,11 @@ class _NewPaymentsState extends State<NewPayments> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(16.0),
+          ),
+        ),
         backgroundColor: Theme.of(context).primaryColor,
         icon: Icon(
           Icons.save,
@@ -104,7 +110,10 @@ class _NewPaymentsState extends State<NewPayments> {
         ),
         label: Text(
           'SAVE',
-          style: TextStyle(fontSize: 18.0, color: Colors.white),
+          style: GoogleFonts.karla(
+            fontSize: 20.0,
+            color: Colors.white,
+          ),
         ),
         onPressed: this.saveData,
       ),
