@@ -131,6 +131,12 @@ class _AppScreenState extends State<AppScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).pushNamed("new"),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0),),),
+        backgroundColor: theme.primaryColor,
+        child: Icon(Icons.add, color: Colors.white, size: 30.0,),
+      ),
     );
   }
 }
