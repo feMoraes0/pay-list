@@ -40,59 +40,42 @@ class _NewPaymentsState extends State<NewPayments> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+
     return Scaffold(
-      body: Hero(
-        tag: "new",
-        child: Material(
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'New Payment',
-                          style: TextStyle(
-                            fontSize: 25.0,
-                          ),
-                        ),
-                        InkResponse(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Icon(Icons.close, size: 28.0),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: Input(
-                      controller: this._titleController,
-                      text: 'Title',
-                      keyboard: null,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12.0),
-                    child: Input(
-                      controller: this._valueController,
-                      text: 'Value',
-                      keyboard: TextInputType.numberWithOptions(decimal: true),
-                    ),
-                  ),
-                ],
+      appBar: AppBar(
+        backgroundColor: theme.backgroundColor,
+        elevation: 0,
+        title: Text(
+          'New Payment',
+          style: GoogleFonts.karla(
+            fontSize: 21.0,
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12.0),
+                child: Input(
+                  controller: this._titleController,
+                  text: 'Title',
+                  keyboard: null,
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12.0),
+                child: Input(
+                  controller: this._valueController,
+                  text: 'Value',
+                  keyboard: TextInputType.numberWithOptions(decimal: true),
+                ),
+              ),
+            ],
           ),
         ),
       ),

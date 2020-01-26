@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Input extends StatelessWidget {
   final TextEditingController controller;
@@ -21,12 +22,12 @@ class Input extends StatelessWidget {
         controller: this.controller,
         keyboardType: (keyboard == null) ? TextInputType.text : keyboard,
         autocorrect: false,
-        style: TextStyle(
+        style: GoogleFonts.karla(
           fontSize: 20.0,
         ),
         decoration: InputDecoration(
           hintText: this.text,
-          hintStyle: TextStyle(
+          hintStyle: GoogleFonts.karla(
             fontSize: 20.0,
           ),
           border: InputBorder.none,
