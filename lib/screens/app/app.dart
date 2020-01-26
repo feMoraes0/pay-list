@@ -72,7 +72,7 @@ class _AppScreenState extends State<AppScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.account_balance_wallet),
+                      icon: Icon(Icons.account_balance_wallet, size: 25.0),
                       onPressed: () {},
                     ),
                     Opacity(
@@ -83,7 +83,7 @@ class _AppScreenState extends State<AppScreen> {
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.person),
+                      icon: Icon(Icons.person, size: 25.0),
                       onPressed: () {},
                     ),
                   ],

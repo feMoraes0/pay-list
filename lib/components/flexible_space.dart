@@ -22,14 +22,25 @@ class FlexibleSpace extends StatelessWidget {
             style: GoogleFonts.karla(fontSize: 16.0),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Text(
-              "8000.00",
-              style: GoogleFonts.karla(
-                fontSize: 35.0,
+              padding: const EdgeInsets.symmetric(
+                vertical: 10.0,
+                horizontal: 5.0,
               ),
-            ),
-          ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "8000.00",
+                    style: GoogleFonts.karla(
+                      fontSize: 35.0,
+                    ),
+                  ),
+                  Icon(
+                    Icons.file_upload,
+                    size: 30.0,
+                  )
+                ],
+              )),
         ],
       ),
     );
