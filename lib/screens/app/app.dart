@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/flexible_space.dart';
 
 class AppScreen extends StatefulWidget {
@@ -20,9 +21,9 @@ class _AppScreenState extends State<AppScreen> {
   void updateOpacity() {
     print(this._scrollController.offset.toString());
     double offset = this._scrollController.offset;
-    if (offset <= 200) {
+    if (offset <= 82) {
       setState(() {
-        _opacity = 1 - (offset / 200);
+        _opacity = 1 - (offset / 82);
       });
     }
   }
@@ -59,38 +60,43 @@ class _AppScreenState extends State<AppScreen> {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Opacity(
-          opacity: 1 - this._opacity,
-          child: Text("Balance: 8000.00"),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.account_balance_wallet),
-          onPressed: () {},
-        ),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.person),
-              onPressed: () {},
-            ),
-        ],
-      ),
       body: SafeArea(
         child: CustomScrollView(
           controller: this._scrollController,
           slivers: <Widget>[
             SliverAppBar(
               backgroundColor: theme.primaryColor,
-              pinned: false,
+              title: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.account_balance_wallet),
+                      onPressed: () {},
+                    ),
+                    Opacity(
+                      opacity: 1 - this._opacity,
+                      child: Text(
+                        "Balance: 8000.00",
+                        style: GoogleFonts.karla(fontSize: 22.0),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.person),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+              pinned: true,
               floating: false,
               primary: true,
-              expandedHeight: 180,
+              expandedHeight: 200,
               flexibleSpace: Opacity(
                 opacity: this._opacity,
                 child: FlexibleSpace(
-                  parentHeight: 180,
+                  parentHeight: 200,
                   parentWidth: size.width,
                 ),
               ),
