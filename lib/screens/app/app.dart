@@ -82,7 +82,7 @@ class _AppScreenState extends State<AppScreen> {
                     ),
                     IconButton(
                       icon: Icon(Icons.settings, size: 27.0),
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context).pushNamed("settings"),
                     ),
                   ],
                 ),

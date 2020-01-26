@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:pay_list/screens/app/app.dart";
+import 'package:pay_list/screens/settings/settings.dart';
 import "package:pay_list/screens/new/new_payments.dart";
 import "package:pay_list/screens/register/register.dart";
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.indigo,
       ),
       routes: {
+        "settings": (context) => Settings(),
         "register": (context) => Register(),
         "new": (context) => NewPayments(),
         "app": (context) => AppScreen(),
