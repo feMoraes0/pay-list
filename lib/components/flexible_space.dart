@@ -12,7 +12,7 @@ class FlexibleSpace extends StatelessWidget {
     return Container(
       height: this.parentHeight,
       width: this.parentWidth,
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0,),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class FlexibleSpace extends StatelessWidget {
                   ),
                   Icon(
                     Icons.file_upload,
-                    size: 30.0,
+                    size: 27.0,
                   )
                 ],
               )),

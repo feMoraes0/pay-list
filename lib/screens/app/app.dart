@@ -81,20 +81,18 @@ class _AppScreenState extends State<AppScreen> {
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.settings, size: 25.0),
+                      icon: Icon(Icons.settings, size: 27.0),
                       onPressed: () {},
                     ),
                   ],
                 ),
               ),
               pinned: true,
-              floating: false,
-              primary: true,
-              expandedHeight: 200,
+              expandedHeight: 180,
               flexibleSpace: Opacity(
                 opacity: this._opacity,
                 child: FlexibleSpace(
-                  parentHeight: 200,
+                  parentHeight: 180,
                   parentWidth: size.width,
                 ),
               ),
