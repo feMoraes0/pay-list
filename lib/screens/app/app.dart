@@ -60,6 +60,7 @@ class _AppScreenState extends State<AppScreen> {
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
+      backgroundColor: theme.primaryColor,
       body: SafeArea(
         child: CustomScrollView(
           controller: this._scrollController,
@@ -71,19 +72,16 @@ class _AppScreenState extends State<AppScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.account_balance_wallet, size: 25.0),
-                      onPressed: () {},
-                    ),
-                    Opacity(
-                      opacity: 1 - this._opacity,
+                    AnimatedOpacity(
+                      duration: Duration(milliseconds: 650),
+                      opacity: (this._opacity < 0.1)? 1 : 0,
                       child: Text(
                         "Balance: 8000.00",
                         style: GoogleFonts.karla(fontSize: 22.0),
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.person, size: 25.0),
+                      icon: Icon(Icons.settings, size: 25.0),
                       onPressed: () {},
                     ),
                   ],
@@ -102,15 +100,34 @@ class _AppScreenState extends State<AppScreen> {
               ),
             ),
             SliverList(
-              // Use a delegate to build items as they're scrolled on screen.
               delegate: SliverChildBuilderDelegate(
-                // The builder function returns a ListTile with a title that
-                // displays the index of the current item.
-                (context, index) => ListTile(title: Text('Item #$index')),
-                // Builds 1000 ListTiles
-                childCount: 1000,
+                (context, index) {
+                  if (index == 0) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0 * this._opacity),
+                          topRight: Radius.circular(20.0 * this._opacity),
+                        ),
+                      ),
+                      child: ListTile(
+                        title: Text('Item #$index', style: TextStyle(color: Colors.black),),
+                      ),
+                    );
+                  } else {
+                    return Container(
+                      color: Colors.white,
+                      child: ListTile(
+                        title: Text('Item #$index', style: TextStyle(color: Colors.black),),
+                      ),
+                    );
+                  }
+                },
+                childCount: 20,
               ),
-            )
+            ),
           ],
         ),
       ),
