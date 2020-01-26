@@ -16,6 +16,7 @@ class CreditCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.primaryColor,
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        border: Border.all(color: Colors.white54),
         boxShadow: [
           BoxShadow(
             color: Colors.black45,
