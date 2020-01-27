@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:pay_list/components/button.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/screens/app/app.dart';
@@ -25,7 +25,11 @@ class Register extends StatelessWidget {
       data['balance'] = 0.0;
       data['payments'] = [];
       await this._localFile.saveFile(jsonEncode(data));
-      Navigator.pushNamed(context, 'app');
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => AppScreen()),
+        (Route<dynamic> route) => false,
+      );
     }
   }
 
@@ -44,7 +48,7 @@ class Register extends StatelessWidget {
                 child: Text(
                   "Payments Control",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.karla(
                     fontSize: 30.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -57,16 +61,32 @@ class Register extends StatelessWidget {
                   text: 'First name',
                 ),
               ),
-              Button(
-                text: 'Save',
-                onPressed: () {
-                  this._saveOnFile(context);
-                },
-              )
             ],
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(16.0),
+          ),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+        icon: Icon(
+          Icons.save,
+          size: 24.0,
+          color: Colors.white,
+        ),
+        label: Text(
+          'SAVE',
+          style: GoogleFonts.karla(
+            fontSize: 20.0,
+            color: Colors.white,
+          ),
+        ),
+        onPressed: () => this._saveOnFile(context),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
