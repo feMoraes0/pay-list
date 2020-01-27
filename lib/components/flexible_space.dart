@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class FlexibleSpace extends StatelessWidget {
   final double parentHeight;
   final double parentWidth;
+  final String balance;
 
-  FlexibleSpace({@required this.parentHeight, @required this.parentWidth});
+  FlexibleSpace({@required this.parentHeight, @required this.parentWidth, @required this.balance});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class FlexibleSpace extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    "8000.00",
+                    this.balance,
                     style: GoogleFonts.karla(
                       fontSize: 35.0,
                     ),

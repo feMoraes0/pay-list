@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/models/local_file.dart';
+import 'package:pay_list/screens/register/register.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _SettingsState extends State<Settings> {
             children: <Widget>[
               SimpleDialogOption(
                 onPressed: () {
-                  Navigator.popAndPushNamed(context, 'app');
+                  Navigator.pop(context);
                 },
                 child: Text(
                   'Ok!',
@@ -55,7 +56,11 @@ class _SettingsState extends State<Settings> {
 
   void _deleteAccount() {
     file.deleteFile();
-    Navigator.popAndPushNamed(context, 'register');
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => Register()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   @override
@@ -70,9 +75,7 @@ class _SettingsState extends State<Settings> {
       ),
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(
-            20.0, 0.0, 20.0, 20.0
-          ),
+          padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[

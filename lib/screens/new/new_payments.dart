@@ -34,14 +34,14 @@ class _NewPaymentsState extends State<NewPayments> {
       await file.saveFile(jsonEncode(fileData));
       this._titleController.text = "";
       this._valueController.text = "";
-      Navigator.pushNamed(context, "app");
+      Navigator.pop(context);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-
+    print("rendering new payments");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.backgroundColor,
