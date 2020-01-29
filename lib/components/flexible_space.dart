@@ -40,7 +40,7 @@ class FlexibleSpace extends StatelessWidget {
                   Icon(
                     Icons.file_upload,
                     size: 27.0,
-                    color: Colors.white,
+                    color: Colors.transparent,
                   )
                 ],
               )),
