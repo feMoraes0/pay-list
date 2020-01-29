@@ -16,33 +16,34 @@ class _SettingsState extends State<Settings> {
 
   void _payDialog() {
     showDialog(
-        context: context,
-        builder: (context) {
-          return SimpleDialog(
-            title: Text(
-              'Deleted with success!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22.0,
-                color: Colors.green,
-              ),
+      context: context,
+      builder: (context) {
+        return SimpleDialog(
+          title: Text(
+            'Deleted with success!',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 22.0,
+              color: Colors.green,
             ),
-            children: <Widget>[
-              SimpleDialogOption(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Ok!',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                  ),
+          ),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Ok!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20.0,
                 ),
               ),
-            ],
-          );
-        });
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _deletePayments(String name) async {
@@ -82,7 +83,9 @@ class _SettingsState extends State<Settings> {
       body: SafeArea(
         top: false,
         child: Container(
-          padding: const EdgeInsets.all(20.0,),
+          padding: const EdgeInsets.all(
+            20.0,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[

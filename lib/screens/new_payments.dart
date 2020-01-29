@@ -73,7 +73,9 @@ class _NewPaymentsState extends State<NewPayments> {
                 child: Input(
                   controller: this._valueController,
                   text: 'Value',
-                  keyboard: TextInputType.numberWithOptions(decimal: true),
+                  keyboard: TextInputType.numberWithOptions(
+                    decimal: true,
+                  ),
                 ),
               ),
             ],
