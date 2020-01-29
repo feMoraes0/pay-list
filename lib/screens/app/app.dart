@@ -35,15 +35,13 @@ class _AppScreenState extends State<AppScreen> {
   @override
   void initState() {
     this._scrollController.addListener(updateOpacity);
-    this._localFile.readFile().then(
-      (fileData) {
-        setState(() {
-          this._payments = jsonDecode(fileData)["payments"];
-          double balance = jsonDecode(fileData)["balance"];
-          this._balance = balance.toStringAsPrecision(getPrecision(balance));
-        });
-      }
-    );
+    this._localFile.readFile().then((fileData) {
+      setState(() {
+        this._payments = jsonDecode(fileData)["payments"];
+        double balance = jsonDecode(fileData)["balance"];
+        this._balance = balance.toStringAsPrecision(getPrecision(balance));
+      });
+    });
     super.initState();
   }
 
@@ -134,11 +132,17 @@ class _AppScreenState extends State<AppScreen> {
                       opacity: (this._opacity < 0.1) ? 1 : 0,
                       child: Text(
                         "Balance: " + this._balance,
-                        style: GoogleFonts.karla(fontSize: 22.0,),
+                        style: GoogleFonts.karla(
+                          fontSize: 22.0,
+                        ),
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.settings, size: 27.0, color: Colors.white,),
+                      icon: Icon(
+                        Icons.settings,
+                        size: 27.0,
+                        color: Colors.white,
+                      ),
                       onPressed: () =>
                           Navigator.of(context).pushNamed("settings"),
                     ),
@@ -159,9 +163,9 @@ class _AppScreenState extends State<AppScreen> {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  if(this._payments.length == 0) {
+                  if (this._payments.length == 0) {
                     return this._renderNoItem(size);
-                  } else if(index < this._payments.length) {
+                  } else if (index < this._payments.length) {
                     return this._renderItem(index);
                   }
                   return Container();
