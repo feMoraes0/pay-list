@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/models/local_file.dart';
-import 'package:pay_list/screens/register/register.dart';
+import 'package:pay_list/screens/register.dart';
 
 class Settings extends StatefulWidget {
   @override

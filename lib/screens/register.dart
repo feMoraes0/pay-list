@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
-import 'package:pay_list/screens/app/app.dart';
+import 'package:pay_list/screens/app.dart';
 
 class Register extends StatelessWidget {
   final LocalFile _localFile = new LocalFile();

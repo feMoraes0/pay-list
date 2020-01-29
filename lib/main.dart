@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import "package:pay_list/screens/app/app.dart";
-import 'package:pay_list/screens/settings/settings.dart';
-import "package:pay_list/screens/new/new_payments.dart";
-import "package:pay_list/screens/register/register.dart";
+import "package:pay_list/screens/app.dart";
+import 'package:pay_list/screens/settings.dart';
+import "package:pay_list/screens/new_payments.dart";
+import "package:pay_list/screens/register.dart";
 
 void main() => runApp(MyApp());
 
