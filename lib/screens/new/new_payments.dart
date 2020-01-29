@@ -44,7 +44,7 @@ class _NewPaymentsState extends State<NewPayments> {
     print("rendering new payments");
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: theme.backgroundColor,
+        backgroundColor: theme.primaryColor,
         elevation: 0,
         title: Text(
           'New Payment',
@@ -54,6 +54,7 @@ class _NewPaymentsState extends State<NewPayments> {
         ),
       ),
       body: SafeArea(
+        top: false,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(

@@ -70,7 +70,7 @@ class _SettingsState extends State<Settings> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: theme.backgroundColor,
+        backgroundColor: theme.primaryColor,
         elevation: 0.0,
       ),
       body: SafeArea(
