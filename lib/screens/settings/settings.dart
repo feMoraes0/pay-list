@@ -72,10 +72,17 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         backgroundColor: theme.primaryColor,
         elevation: 0.0,
+        title: Text(
+          'Settings',
+          style: GoogleFonts.karla(
+            fontSize: 21.0,
+          ),
+        ),
       ),
       body: SafeArea(
+        top: false,
         child: Container(
-          padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
+          padding: const EdgeInsets.all(20.0,),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
