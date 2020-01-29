@@ -20,7 +20,7 @@ class FlexibleSpace extends StatelessWidget {
         children: <Widget>[
           Text(
             "Total Balance",
-            style: GoogleFonts.karla(fontSize: 16.0),
+            style: GoogleFonts.karla(fontSize: 16.0, color: Colors.white,),
           ),
           Padding(
               padding: const EdgeInsets.symmetric(
@@ -34,11 +34,13 @@ class FlexibleSpace extends StatelessWidget {
                     this.balance,
                     style: GoogleFonts.karla(
                       fontSize: 35.0,
+                      color: Colors.white,
                     ),
                   ),
                   Icon(
                     Icons.file_upload,
                     size: 27.0,
+                    color: Colors.white,
                   )
                 ],
               )),

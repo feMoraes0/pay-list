@@ -118,6 +118,7 @@ class _AppScreenState extends State<AppScreen> {
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       body: SafeArea(
+        top: false,
         child: CustomScrollView(
           controller: this._scrollController,
           slivers: <Widget>[
@@ -137,7 +138,7 @@ class _AppScreenState extends State<AppScreen> {
                       ),
                     ),
                     IconButton(
-                      icon: Icon(Icons.settings, size: 27.0,),
+                      icon: Icon(Icons.settings, size: 27.0, color: Colors.white,),
                       onPressed: () =>
                           Navigator.of(context).pushNamed("settings"),
                     ),
