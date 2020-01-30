@@ -14,6 +14,16 @@ class _SettingsState extends State<Settings> {
   String localName;
   LocalFile file = new LocalFile();
 
+  @override
+  void initState() async {
+    await file.readFile().then((fileData) {
+      setState(() {
+        this.localName = jsonDecode(fileData)['name'];
+      });
+    });
+    super.initState();
+  }
+
   void _payDialog() {
     showDialog(
       context: context,
@@ -55,8 +65,8 @@ class _SettingsState extends State<Settings> {
     this._payDialog();
   }
 
-  void _deleteAccount() {
-    file.deleteFile();
+  void _deleteAccount() async {
+    await file.deleteFile();
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => Register()),
@@ -66,7 +76,6 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    String name = (this.localName == null) ? 'Fernando' : this.localName;
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
@@ -93,7 +102,7 @@ class _SettingsState extends State<Settings> {
                 backgroundColor: theme.primaryColor,
                 radius: 40.0,
                 child: Text(
-                  name[0].toUpperCase(),
+                  this.localName[0].toUpperCase(),
                   style: GoogleFonts.karla(
                     fontSize: 45.0,
                     color: Colors.white,
@@ -103,7 +112,7 @@ class _SettingsState extends State<Settings> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Text(
-                  name,
+                  this.localName,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.karla(
                     fontSize: 25.0,
@@ -113,7 +122,7 @@ class _SettingsState extends State<Settings> {
               Divider(),
               GestureDetector(
                 onTap: () {
-                  this._deletePayments(name);
+                  this._deletePayments(this.localName);
                 },
                 child: ListTile(
                   leading: Icon(
