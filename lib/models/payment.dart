@@ -1,10 +1,8 @@
-import 'package:meta/meta.dart';
-
 class Payment {
   String title, date;
   double value;
 
-  Payment({@required this.title, @required this.date, @required this.value});
+  Payment({this.title, this.date, this.value});
 
   Payment asObject(Map<String, dynamic> object) {
     return Payment(
@@ -22,4 +20,5 @@ class Payment {
     };
     return json;
   }
+
 }
