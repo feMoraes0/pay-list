@@ -101,7 +101,6 @@ class _CustomScrollState extends State<CustomScroll> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.balance);
     Size size = MediaQuery.of(context).size;
     ThemeData theme = Theme.of(context);
 
