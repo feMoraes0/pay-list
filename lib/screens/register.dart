@@ -46,7 +46,7 @@ class Register extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: Text(
-                  "Payments",
+                  'Payments',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.karla(
                     fontSize: 30.0,

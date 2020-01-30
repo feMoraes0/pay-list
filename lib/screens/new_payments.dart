@@ -19,7 +19,7 @@ class _NewPaymentsState extends State<NewPayments> {
   void saveData() {
     String title = this._titleController.text;
     String value = this._valueController.text;
-    if (title == "" || value == "") return;
+    if (title == '' || value == '') return;
 
     Payment payment = new Payment(
       title: title,
@@ -32,8 +32,8 @@ class _NewPaymentsState extends State<NewPayments> {
       fileData['balance'] += payment.value;
       fileData['payments'].add(payment.asJSON());
       await file.saveFile(jsonEncode(fileData));
-      this._titleController.text = "";
-      this._valueController.text = "";
+      this._titleController.text = '';
+      this._valueController.text = '';
       Navigator.pop(context);
     });
   }

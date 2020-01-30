@@ -4,7 +4,7 @@ import 'package:path_provider/path_provider.dart';
 class LocalFile {
   Future<File> _getFile() async {
     final Directory directory = await getApplicationDocumentsDirectory();
-    return File("${directory.path}/data.json");
+    return File('${directory.path}/data.json');
   }
 
   Future<dynamic> readFile() async {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/custom_scroll.dart';
@@ -28,8 +28,8 @@ class AppScreen extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.data != null)
                 return CustomScroll(
-                  payments: snapshot.data["payments"],
-                  balance: snapshot.data["balance"].toString(),
+                  payments: snapshot.data['payments'],
+                  balance: snapshot.data['balance'].toString(),
                 );
             }
             return Center(
@@ -51,14 +51,14 @@ class AppScreen extends StatelessWidget {
           color: Colors.white,
         ),
         label: Text(
-          "NEW",
+          'NEW',
           style: GoogleFonts.karla(
             fontSize: 20.0,
             color: Colors.white,
           ),
         ),
         onPressed: () {
-          Navigator.of(context).pushNamed("new");
+          Navigator.of(context).pushNamed('new');
         },
       ),
     );

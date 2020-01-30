@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/flexible_space.dart';
 
@@ -118,7 +118,7 @@ class _CustomScrollState extends State<CustomScroll> {
                   duration: Duration(milliseconds: 650),
                   opacity: (this._opacity < 0.1) ? 1 : 0,
                   child: Text(
-                    "Balance: " + widget.balance,
+                    'Balance: ' + widget.balance,
                     style: GoogleFonts.karla(
                       fontSize: 22.0,
                     ),
@@ -130,7 +130,7 @@ class _CustomScrollState extends State<CustomScroll> {
                     size: 27.0,
                     color: Colors.white,
                   ),
-                  onPressed: () => Navigator.of(context).pushNamed("settings"),
+                  onPressed: () => Navigator.of(context).pushNamed('settings'),
                 ),
               ],
             ),

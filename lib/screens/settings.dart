@@ -66,7 +66,7 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    String name = (this.localName == null) ? "Fernando" : this.localName;
+    String name = (this.localName == null) ? 'Fernando' : this.localName;
     ThemeData theme = Theme.of(context);
 
     return Scaffold(
