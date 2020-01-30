@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/flexible_space.dart';
-
-int getPrecision(double value) {
-  int precision = 4;
-
-  if (value < 10) {
-    precision = 3;
-  } else if (value >= 100 && value < 1000) {
-    precision = 5;
-  } else if (value >= 1000) {
-    precision = 6;
-  }
-
-  return precision;
-}
-
+import 'package:pay_list/extensions/double_money.dart';
 
 class CustomScroll extends StatefulWidget {
   final List payments;
-  final String balance;
+  final double balance;
 
   CustomScroll({@required this.payments, @required this.balance});
 
@@ -64,7 +50,8 @@ class _CustomScrollState extends State<CustomScroll> {
   }
 
   Widget _renderItem(Map<String, dynamic> item) {
-    int precision = getPrecision(item['value']);
+    double itemValue = item['value'];
+    
     return ListTile(
       leading: CircleAvatar(
         child: Text(
@@ -90,7 +77,7 @@ class _CustomScrollState extends State<CustomScroll> {
         ),
       ),
       trailing: Text(
-        item['value'].toStringAsPrecision(precision),
+        itemValue.asMoney(),
         style: TextStyle(
           fontSize: 18.0,
         ),
@@ -117,7 +104,7 @@ class _CustomScrollState extends State<CustomScroll> {
                   duration: Duration(milliseconds: 650),
                   opacity: (this._opacity < 0.1) ? 1 : 0,
                   child: Text(
-                    'Balance: ' + widget.balance,
+                    'Balance: ' + widget.balance.asMoney(),
                     style: GoogleFonts.karla(
                       fontSize: 22.0,
                     ),
@@ -141,7 +128,7 @@ class _CustomScrollState extends State<CustomScroll> {
             child: FlexibleSpace(
               parentHeight: 180,
               parentWidth: size.width,
-              balance: widget.balance,
+              balance: widget.balance.asMoney(),
             ),
           ),
         ),

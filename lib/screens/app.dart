@@ -29,7 +29,7 @@ class AppScreen extends StatelessWidget {
               if (snapshot.data != null)
                 return CustomScroll(
                   payments: snapshot.data['payments'],
-                  balance: snapshot.data['balance'].toString(),
+                  balance: snapshot.data['balance'],
                 );
             }
             return Center(
