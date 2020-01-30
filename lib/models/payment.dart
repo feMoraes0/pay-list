@@ -4,11 +4,11 @@ class Payment {
 
   Payment({this.title, this.date, this.value});
 
-  Payment asObject(Map<String, dynamic> object) {
+  static Payment fromObject(Map<String, dynamic> object) {
     return Payment(
       title: object['title'],
       date: object['date'],
-      value: object['value'],
+      value: object['value']
     );
   }
 

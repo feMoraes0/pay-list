@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/models/payment.dart';
+import 'package:pay_list/models/user.dart';
 
 class NewPayments extends StatefulWidget {
   @override
@@ -28,10 +29,14 @@ class _NewPaymentsState extends State<NewPayments> {
     );
 
     file.readFile().then((data) async {
-      Map fileData = jsonDecode(data);
-      fileData['balance'] += payment.value;
-      fileData['payments'].add(payment.asJSON());
-      await file.saveFile(jsonEncode(fileData));
+      User user = User.fromJSON(jsonDecode(data));
+      user.balance += payment.value;
+      user.payments.add(payment);
+      // Map fileData = jsonDecode(data);
+      // fileData['balance'] += payment.value;
+      // fileData['payments'].add(payment.asJSON());
+      // await file.saveFile(jsonEncode(fileData));
+      await file.saveFile(jsonEncode(user.asJSON()));
       this._titleController.text = '';
       this._valueController.text = '';
       Navigator.pop(context);
