@@ -39,7 +39,6 @@ class _CustomScrollState extends State<CustomScroll> {
   }
 
   void updateOpacity() {
-    print(this._scrollController.offset.toString());
     double offset = this._scrollController.offset;
     if (offset <= 82) {
       setState(() {
