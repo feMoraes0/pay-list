@@ -114,9 +114,12 @@ class _CustomScrollState extends State<CustomScroll> {
                   icon: Icon(
                     Icons.clear_all,
                     size: 27.0,
-                    color: Colors.transparent,
+                    color: (widget.payments.length > 0) ? Colors.white : Colors.transparent,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    if(widget.payments.length > 0)
+                      Navigator.of(context).pushNamed('delete');
+                  },
                 ),
               ],
             ),

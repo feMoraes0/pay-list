@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pay_list/screens/app.dart';
+import 'package:pay_list/screens/delete.dart';
 import 'package:pay_list/screens/new_payments.dart';
 
 void main() => runApp(MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'new': (context) => NewPayments(),
         'app': (context) => AppScreen(),
+        'delete': (context) => DeleteScreen(),
       },
       home: AppScreen(),
     );
