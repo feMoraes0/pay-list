@@ -19,7 +19,6 @@ class AppScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    print('rendering app...');
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
