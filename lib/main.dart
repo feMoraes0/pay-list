@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pay_list/screens/app/app.dart';
-import 'package:pay_list/screens/new/new_payments.dart';
-import 'package:pay_list/screens/register/register.dart';
+import 'package:pay_list/screens/app.dart';
+import 'package:pay_list/screens/delete.dart';
+import 'package:pay_list/screens/new_payments.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,21 +13,20 @@ class MyApp extends StatelessWidget {
       title: 'Pay List',
       theme: ThemeData(
         brightness: Brightness.light,
-        fontFamily: 'Nunito',
         backgroundColor: Colors.white,
-        primaryColor: Colors.redAccent,
+        primaryColor: Colors.indigoAccent,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        fontFamily: 'Nunito',
-        primaryColor: Colors.redAccent,
+        backgroundColor: Color.fromRGBO(48, 48, 48, 1.0),
+        primaryColor: Colors.indigo,
       ),
       routes: {
-        'register': (context) => Register(),
         'new': (context) => NewPayments(),
-        'app': (context) => App(),
+        'app': (context) => AppScreen(),
+        'delete': (context) => DeleteScreen(),
       },
-      home: Register(),
+      home: AppScreen(),
     );
   }
 }
