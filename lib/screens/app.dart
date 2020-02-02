@@ -12,7 +12,7 @@ class AppScreen extends StatelessWidget {
     double balance = await db.readBalance();
     return {
       'payments': payments,
-      'balance': balance
+      'balance': balance ?? 0.0
     };
   }
 
