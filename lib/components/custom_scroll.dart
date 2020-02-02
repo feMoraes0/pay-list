@@ -114,7 +114,7 @@ class _CustomScrollState extends State<CustomScroll> {
                   icon: Icon(
                     Icons.clear_all,
                     size: 27.0,
-                    color: Colors.white,
+                    color: Colors.transparent,
                   ),
                   onPressed: () {},
                 ),

@@ -50,7 +50,7 @@ class FlexibleSpace extends StatelessWidget {
                 Icon(
                   Icons.refresh,
                   size: 27.0,
-                  color: Colors.white,
+                  color: Colors.transparent,
                 )
               ],
             ),

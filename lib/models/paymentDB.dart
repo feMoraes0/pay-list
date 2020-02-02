@@ -1,4 +1,3 @@
-
 import 'package:pay_list/database/local_db.dart';
 import 'package:pay_list/models/payment.dart';
 import 'package:sqflite/sqflite.dart';
@@ -14,9 +13,10 @@ class PaymentDB {
     );
   }
 
-  // void read() {}
-  // void update() {}
-  // void delete() {}
+  Future<void> clear() async {
+    final Database db = await LocalDB.create();
+    await db.delete('payments');
+  }
 
   Future<double> readBalance() async {
     final Database db = await LocalDB.create();
