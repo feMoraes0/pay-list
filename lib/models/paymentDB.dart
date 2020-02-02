@@ -18,6 +18,12 @@ class PaymentDB {
   // void update() {}
   // void delete() {}
 
+  Future<double> readBalance() async {
+    final Database db = await LocalDB.create();
+    List<Map> dbAnswer = await db.rawQuery("SELECT SUM(value) FROM payments");
+    return dbAnswer[0]["SUM(value)"];
+  }
+
   Future<List<Map>> readAll() async {
     final Database db = await LocalDB.create();
     return await db.query('payments');

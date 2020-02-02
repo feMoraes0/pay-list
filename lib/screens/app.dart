@@ -8,19 +8,16 @@ import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/models/paymentDB.dart';
 
 class AppScreen extends StatelessWidget {
-  
+
   Future<dynamic> getFileData() async {
     PaymentDB db = new PaymentDB();
-    List<Map> data = await db.readAll();
-    return data;
+    List<Map> payments = await db.readAll();
+    double balance = await db.readBalance();
+    return {
+      'payments': payments,
+      'balance': balance
+    };
   }
-
-  // Future<dynamic> getFileData() async {
-  //   LocalFile _localFile = new LocalFile();
-  //   return await _localFile.readFile().then((fileData) {
-  //     return jsonDecode(fileData);
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +33,8 @@ class AppScreen extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.data != null)
                 return CustomScroll(
-                  payments: snapshot.data,
-                  balance: 0.0,
+                  payments: snapshot.data['payments'],
+                  balance: snapshot.data['balance'],
                 );
             }
             return Center(
