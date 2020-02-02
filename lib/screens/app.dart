@@ -5,14 +5,22 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/custom_scroll.dart';
 import 'package:pay_list/models/local_file.dart';
+import 'package:pay_list/models/paymentDB.dart';
 
 class AppScreen extends StatelessWidget {
+  
   Future<dynamic> getFileData() async {
-    LocalFile _localFile = new LocalFile();
-    return await _localFile.readFile().then((fileData) {
-      return jsonDecode(fileData);
-    });
+    PaymentDB db = new PaymentDB();
+    List<Map> data = await db.readAll();
+    return data;
   }
+
+  // Future<dynamic> getFileData() async {
+  //   LocalFile _localFile = new LocalFile();
+  //   return await _localFile.readFile().then((fileData) {
+  //     return jsonDecode(fileData);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +36,8 @@ class AppScreen extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.done) {
               if (snapshot.data != null)
                 return CustomScroll(
-                  payments: snapshot.data['payments'],
-                  balance: snapshot.data['balance'],
+                  payments: snapshot.data,
+                  balance: 0.0,
                 );
             }
             return Center(

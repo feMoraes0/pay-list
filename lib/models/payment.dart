@@ -1,14 +1,19 @@
 class Payment {
-  String title, date;
+  int date;
+  String title;
   double value;
 
-  Payment({this.title, this.date, this.value});
+  Payment({
+    this.title,
+    this.value,
+    this.date,
+  });
 
   static Payment fromObject(Map<String, dynamic> object) {
     return Payment(
       title: object['title'],
       date: object['date'],
-      value: object['value']
+      value: object['value'],
     );
   }
 
@@ -20,5 +25,4 @@ class Payment {
     };
     return json;
   }
-
 }

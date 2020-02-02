@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:pay_list/components/input.dart';
 import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/models/payment.dart';
+import 'package:pay_list/models/paymentDB.dart';
 import 'package:pay_list/models/user.dart';
 
 class NewPayments extends StatefulWidget {
@@ -17,7 +18,7 @@ class _NewPaymentsState extends State<NewPayments> {
   final TextEditingController _titleController = new TextEditingController();
   final TextEditingController _valueController = new TextEditingController();
 
-  void saveData() {
+  void saveData() async {
     String title = this._titleController.text;
     String value = this._valueController.text;
     if (title == '' || value == '') return;
@@ -25,22 +26,30 @@ class _NewPaymentsState extends State<NewPayments> {
     Payment payment = new Payment(
       title: title,
       value: double.parse(value),
-      date: DateFormat('d.M.y').format(DateTime.now()),
+      date: DateTime.now().millisecondsSinceEpoch,
     );
 
-    file.readFile().then((data) async {
-      User user = User.fromJSON(jsonDecode(data));
-      user.balance += payment.value;
-      user.payments.add(payment);
-      // Map fileData = jsonDecode(data);
-      // fileData['balance'] += payment.value;
-      // fileData['payments'].add(payment.asJSON());
-      // await file.saveFile(jsonEncode(fileData));
-      await file.saveFile(jsonEncode(user.asJSON()));
-      this._titleController.text = '';
-      this._valueController.text = '';
-      Navigator.pop(context);
-    });
+    PaymentDB db = new PaymentDB();
+    var ans = await db.create(payment);
+    print('created with success');
+    print(ans);
+    this._titleController.text = '';
+    this._valueController.text = '';
+    Navigator.pop(context);
+
+    // file.readFile().then((data) async {
+    //   User user = User.fromJSON(jsonDecode(data));
+    //   user.balance += payment.value;
+    //   user.payments.add(payment);
+    //   // Map fileData = jsonDecode(data);
+    //   // fileData['balance'] += payment.value;
+    //   // fileData['payments'].add(payment.asJSON());
+    //   // await file.saveFile(jsonEncode(fileData));
+    //   await file.saveFile(jsonEncode(user.asJSON()));
+    //   this._titleController.text = '';
+    //   this._valueController.text = '';
+    //   Navigator.pop(context);
+    // });
   }
 
   @override

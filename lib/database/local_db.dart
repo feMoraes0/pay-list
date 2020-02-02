@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 
 class LocalDB {
 
-  Future<Database> create() async {
+  static Future<Database> create() async {
     return openDatabase(
       join(
         await getDatabasesPath(),
@@ -11,7 +11,7 @@ class LocalDB {
       ),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE payments(id INTEGER PRIMARY KEY AUTO_INCREMENT, title TEXT, value DOUBLE, date INTEGER)",
+          "CREATE TABLE payments(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, value DOUBLE, date INTEGER)",
         );
       },
       version: 1
