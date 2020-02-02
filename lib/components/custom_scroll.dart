@@ -112,11 +112,11 @@ class _CustomScrollState extends State<CustomScroll> {
                 ),
                 IconButton(
                   icon: Icon(
-                    Icons.settings,
+                    Icons.clear_all,
                     size: 27.0,
                     color: Colors.white,
                   ),
-                  onPressed: () => Navigator.of(context).pushNamed('settings'),
+                  onPressed: () {},
                 ),
               ],
             ),

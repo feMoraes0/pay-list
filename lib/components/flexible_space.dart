@@ -48,9 +48,9 @@ class FlexibleSpace extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  Icons.file_upload,
+                  Icons.refresh,
                   size: 27.0,
-                  color: Colors.transparent,
+                  color: Colors.white,
                 )
               ],
             ),
