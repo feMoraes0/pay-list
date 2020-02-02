@@ -1,12 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:pay_list/components/input.dart';
-import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/models/payment.dart';
 import 'package:pay_list/models/paymentDB.dart';
-import 'package:pay_list/models/user.dart';
 
 class NewPayments extends StatefulWidget {
   @override
@@ -14,7 +10,6 @@ class NewPayments extends StatefulWidget {
 }
 
 class _NewPaymentsState extends State<NewPayments> {
-  final LocalFile file = new LocalFile();
   final TextEditingController _titleController = new TextEditingController();
   final TextEditingController _valueController = new TextEditingController();
 
@@ -34,20 +29,6 @@ class _NewPaymentsState extends State<NewPayments> {
     this._titleController.text = '';
     this._valueController.text = '';
     Navigator.pop(context);
-    
-    // file.readFile().then((data) async {
-    //   User user = User.fromJSON(jsonDecode(data));
-    //   user.balance += payment.value;
-    //   user.payments.add(payment);
-    //   // Map fileData = jsonDecode(data);
-    //   // fileData['balance'] += payment.value;
-    //   // fileData['payments'].add(payment.asJSON());
-    //   // await file.saveFile(jsonEncode(fileData));
-    //   await file.saveFile(jsonEncode(user.asJSON()));
-    //   this._titleController.text = '';
-    //   this._valueController.text = '';
-    //   Navigator.pop(context);
-    // });
   }
 
   @override

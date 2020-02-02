@@ -1,10 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/custom_scroll.dart';
-import 'package:pay_list/models/local_file.dart';
 import 'package:pay_list/models/paymentDB.dart';
 
 class AppScreen extends StatelessWidget {
