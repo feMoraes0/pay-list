@@ -30,16 +30,11 @@ class _NewPaymentsState extends State<NewPayments> {
     );
 
     PaymentDB db = new PaymentDB();
-    var saved = await db.create(payment);
-    if(saved == 1) {
-      this._titleController.text = '';
-      this._valueController.text = '';
-      Navigator.pop(context);
-    } else {
-      print('problems to save');
-    }
+    await db.create(payment);
+    this._titleController.text = '';
+    this._valueController.text = '';
+    Navigator.pop(context);
     
-
     // file.readFile().then((data) async {
     //   User user = User.fromJSON(jsonDecode(data));
     //   user.balance += payment.value;
