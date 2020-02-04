@@ -11,8 +11,18 @@ class DeleteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: null,
+      appBar: AppBar(
+        backgroundColor: theme.primaryColor,
+        elevation: 0,
+        title: Text(
+          'Delete',
+          style: GoogleFonts.karla(
+            fontSize: 21.0,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
