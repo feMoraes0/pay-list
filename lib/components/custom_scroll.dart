@@ -71,7 +71,7 @@ class _CustomScrollState extends State<CustomScroll> {
         ),
       ),
       subtitle: Text(
-        '${item['date']}',
+        DateTime.fromMillisecondsSinceEpoch(item['date']).toLocal().toString().split(' ')[0],
         style: TextStyle(
           fontSize: 16.0,
         ),
