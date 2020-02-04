@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/flexible_space.dart';
 import 'package:pay_list/extensions/double_money.dart';
 
+import '../models/payment.dart';
+
 class CustomScroll extends StatefulWidget {
   final List payments;
   final double balance;
@@ -14,7 +16,6 @@ class CustomScroll extends StatefulWidget {
 }
 
 class _CustomScrollState extends State<CustomScroll> {
-
   ScrollController _scrollController = ScrollController();
   double _opacity = 1;
 
@@ -49,13 +50,11 @@ class _CustomScrollState extends State<CustomScroll> {
     );
   }
 
-  Widget _renderItem(Map<String, dynamic> item) {
-    double itemValue = item['value'];
-    
+  Widget _renderItem(Payment payment) {
     return ListTile(
       leading: CircleAvatar(
         child: Text(
-          item['title'][0].toString().toUpperCase(),
+          payment.title[0].toString().toUpperCase(),
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w700,
@@ -65,19 +64,22 @@ class _CustomScrollState extends State<CustomScroll> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       title: Text(
-        '${item['title']}',
+        payment.title,
         style: TextStyle(
           fontSize: 20.0,
         ),
       ),
       subtitle: Text(
-        DateTime.fromMillisecondsSinceEpoch(item['date']).toLocal().toString().split(' ')[0],
+        DateTime.fromMillisecondsSinceEpoch(payment.date)
+            .toLocal()
+            .toString()
+            .split(' ')[0],
         style: TextStyle(
           fontSize: 16.0,
         ),
       ),
       trailing: Text(
-        itemValue.asMoney(),
+        payment.value.asMoney(),
         style: TextStyle(
           fontSize: 18.0,
         ),
@@ -114,10 +116,12 @@ class _CustomScrollState extends State<CustomScroll> {
                   icon: Icon(
                     Icons.clear_all,
                     size: 27.0,
-                    color: (widget.payments.length > 0) ? Colors.white : Colors.transparent,
+                    color: (widget.payments.length > 0)
+                        ? Colors.white
+                        : Colors.transparent,
                   ),
                   onPressed: () {
-                    if(widget.payments.length > 0)
+                    if (widget.payments.length > 0)
                       Navigator.of(context).pushNamed('delete');
                   },
                 ),
@@ -141,8 +145,8 @@ class _CustomScrollState extends State<CustomScroll> {
               if (widget.payments.length == 0) {
                 return this._renderNoItem(size);
               } else if (index < widget.payments.length) {
-                Map<String, dynamic> item = widget.payments[index];
-                return this._renderItem(item);
+                Payment payment = Payment.fromObject(widget.payments[index]);
+                return this._renderItem(payment);
               }
               return SizedBox(
                 height: 60.0,
