@@ -27,7 +27,7 @@ class _CustomScrollState extends State<CustomScroll> {
 
   void updateOpacity() {
     double offset = this._scrollController.offset;
-    if (offset <= 82) {
+    if (offset <= 82 && widget.payments.length > 0) {
       setState(() {
         _opacity = 1 - (offset / 82);
       });
