@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pay_list/screens/app.dart';
 import 'package:pay_list/screens/delete.dart';
 import 'package:pay_list/screens/new_payments.dart';
+import 'package:pay_list/screens/splash_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         'app': (context) => AppScreen(),
         'delete': (context) => DeleteScreen(),
       },
-      home: AppScreen(),
+      home: SplashScreen(),
     );
   }
 }
