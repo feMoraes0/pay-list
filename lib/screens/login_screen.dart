@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: size.width,
                   height: 45.0,
                   child: Text(
-                    'Enter',
+                    'Login',
                     style: GoogleFonts.mallanna(
                       fontSize: 21.0,
                       color: Colors.black87,
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
-                  vertical: 20.0,
+                  vertical: 15.0,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -142,7 +142,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(1.0),
                 color: Colors.amber[600],
                 splashColor: Colors.white54,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, 'register');
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
