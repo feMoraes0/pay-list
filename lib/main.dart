@@ -5,6 +5,7 @@ import 'package:pay_list/screens/home_screen.dart';
 import 'package:pay_list/screens/login_screen.dart';
 import 'package:pay_list/screens/new_payments.dart';
 import 'package:pay_list/screens/register_screen.dart';
+import 'package:pay_list/screens/wallet_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
         'login': (context) => LoginScreen(),
         'register': (context) => RegisterScreen(),
         'home': (context) => HomeScreen(),
+        'wallet': (context) => Wallet(),
       },
-      home: LoginScreen(),
+      home: Wallet(),
     );
   }
 }
