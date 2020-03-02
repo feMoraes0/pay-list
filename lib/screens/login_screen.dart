@@ -93,7 +93,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(1.0),
                 color: Colors.amber[600],
                 splashColor: Colors.white54,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, 'home');
+                },
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
