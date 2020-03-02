@@ -6,11 +6,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double tamanho = 310.0;
+  double containerMarginTop = 310.0;
 
-  void update() {
+  void updateMarginTop() {
     setState(() {
-      tamanho = (tamanho == 310.0) ? 0.0 : 310.0;
+      containerMarginTop = (containerMarginTop == 310.0) ? 0.0 : 310.0;
     });
   }
 
@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              margin: EdgeInsets.only(top: this.tamanho),
+              margin: EdgeInsets.only(top: this.containerMarginTop),
               height: size.height,
               width: size.width,
               padding: const EdgeInsets.only(
@@ -149,8 +149,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular((tamanho == 310.0) ? 35.0 : 0.0),
-                  topRight: Radius.circular((tamanho == 310.0) ? 35.0 : 0.0),
+                  topLeft: Radius.circular((containerMarginTop == 310.0) ? 35.0 : 0.0),
+                  topRight: Radius.circular((containerMarginTop == 310.0) ? 35.0 : 0.0),
                 ),
                 color: Colors.white,
               ),
@@ -166,9 +166,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: this.update,
+                        onTap: this.updateMarginTop,
                         child: Icon(
-                          (this.tamanho == 310.0)
+                          (this.containerMarginTop == 310.0)
                               ? Icons.expand_less
                               : Icons.expand_more,
                           size: 32.0,
