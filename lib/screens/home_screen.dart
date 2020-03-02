@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0, left: 20.0),
                     child: Icon(
-                      Icons.person,
+                      Icons.arrow_back,
                       size: 30.0,
                       color: Colors.black,
                     ),
@@ -77,11 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 140.0,
                 margin: const EdgeInsets.only(top: 20.0),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  ),
-                  color: Colors.amber,
+                  color: Colors.transparent,
                 ),
                 child: LineChartSample2()
               ),
@@ -97,10 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 20.0,
               ),
               decoration: BoxDecoration(
-                // borderRadius: BorderRadius.only(
-                //   topLeft: Radius.circular((containerMarginTop == 315.0) ? 20.0 : 0.0),
-                //   topRight: Radius.circular((containerMarginTop == 315.0) ? 20.0 : 0.0),
-                // ),
                 color: Colors.white,
               ),
               child: Column(
