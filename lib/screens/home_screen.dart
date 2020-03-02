@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pay_list/screens/chart.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -6,11 +7,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double containerMarginTop = 310.0;
+  double containerMarginTop = 315.0;
 
   void updateMarginTop() {
     setState(() {
-      containerMarginTop = (containerMarginTop == 310.0) ? 0.0 : 310.0;
+      containerMarginTop = (containerMarginTop == 315.0) ? 0.0 : 315.0;
     });
   }
 
@@ -70,71 +71,19 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Positioned(
-              top: 170.0,
+              top: 155.0,
               child: Container(
                 width: size.width,
                 height: 140.0,
-                padding: const EdgeInsets.only(
-                  left: 35.0,
-                  right: 35.0,
-                  bottom: 10.0,
-                ),
                 margin: const EdgeInsets.only(top: 20.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(35.0),
-                    topRight: Radius.circular(35.0),
+                    topLeft: Radius.circular(20.0),
+                    topRight: Radius.circular(20.0),
                   ),
                   color: Colors.amber,
                 ),
-                alignment: Alignment.center,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Income',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        Text(
-                          '0.00',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      '/',
-                      style: TextStyle(
-                        fontSize: 24.0,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Counter',
-                          style: TextStyle(
-                            fontSize: 18.0,
-                          ),
-                        ),
-                        Text(
-                          '0',
-                          style: TextStyle(
-                            fontSize: 30.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                child: LineChartSample2()
               ),
             ),
             AnimatedContainer(
@@ -148,10 +97,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 20.0,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular((containerMarginTop == 310.0) ? 35.0 : 0.0),
-                  topRight: Radius.circular((containerMarginTop == 310.0) ? 35.0 : 0.0),
-                ),
+                // borderRadius: BorderRadius.only(
+                //   topLeft: Radius.circular((containerMarginTop == 315.0) ? 20.0 : 0.0),
+                //   topRight: Radius.circular((containerMarginTop == 315.0) ? 20.0 : 0.0),
+                // ),
                 color: Colors.white,
               ),
               child: Column(
