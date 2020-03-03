@@ -25,7 +25,61 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.amberAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.amberAccent,
+        elevation: 0.0,
+        leading: AnimatedOpacity(
+          duration: Duration(milliseconds: 450),
+          opacity: (!this.expanded) ? 1 : 0,
+          child: GestureDetector(
+            onTap: () {
+              if (!this.expanded) Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 10.0,
+                left: 20.0,
+              ),
+              child: Icon(
+                Icons.arrow_back,
+                size: 30.0,
+                color: Colors.black,
+              ),
+            ),
+          ),
+        ),
+        title: AnimatedOpacity(
+          duration: Duration(milliseconds: 450),
+          opacity: (this.expanded) ? 1 : 0,
+          child: Text(
+            'Expenses',
+            style: GoogleFonts.lato(
+              fontSize: 25.0,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        actions: <Widget>[
+          AnimatedOpacity(
+            duration: Duration(milliseconds: 450),
+            opacity: (this.expanded) ? 1 : 0,
+            child: GestureDetector(
+              onTap: () {
+                if (this.expanded) this.updateMarginTop();
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Icon(
+                  Icons.expand_more,
+                  size: 32.0,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         bottom: false,
         child: Stack(
@@ -34,19 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10.0, left: 20.0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 30.0,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
                   Container(
                     margin: const EdgeInsets.only(
                       top: 45.0,
@@ -109,33 +150,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 20.0,
               ),
               decoration: BoxDecoration(
-                color: (this.expanded) ? Colors.amber : Colors.white,
+                color: (this.expanded) ? Colors.amberAccent : Colors.white,
               ),
               child: Column(
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Expenses',
-                          style: GoogleFonts.lato(
-                            fontSize: 25.0,
+                  (!this.expanded)
+                      ? Padding(
+                          padding: const EdgeInsets.only(bottom: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'Expenses',
+                                style: GoogleFonts.lato(
+                                  fontSize: 25.0,
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: this.updateMarginTop,
+                                child: Icon(
+                                  (this.expanded)
+                                      ? Icons.expand_more
+                                      : Icons.expand_less,
+                                  size: 32.0,
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: this.updateMarginTop,
-                          child: Icon(
-                            (this.expanded)
-                                ? Icons.expand_more
-                                : Icons.expand_less,
-                            size: 32.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                        )
+                      : Container(),
                   Expanded(
                     child: ListView.builder(
                       itemCount: 40,
@@ -147,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.amber,
+                                  color: Colors.amberAccent,
                                   borderRadius: BorderRadius.circular(10.0),
                                   border: Border.all(
                                     color: (this.expanded)
