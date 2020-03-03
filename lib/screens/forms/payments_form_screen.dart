@@ -67,7 +67,7 @@ class _PaymentsFormScreenState extends State<PaymentsFormScreen> {
         title: Text(
           'New Payment',
           style: GoogleFonts.lato(
-            fontSize: 26.0,
+            fontSize: 25.0,
             color: Colors.black,
           ),
         ),

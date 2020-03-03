@@ -18,10 +18,19 @@ class _WalletScreenState extends State<WalletScreen> {
         title: Text(
           'Wallet',
           style: GoogleFonts.lato(
-            fontSize: 26.0,
+            fontSize: 25.0,
             color: Colors.black,
           ),
         ),
+        actions: <Widget>[
+          GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Icon(Icons.exit_to_app, size: 28.0, color: Colors.black,),
+            ),
+          )
+        ],
         backgroundColor: Colors.amber,
         elevation: 0.0,
       ),
@@ -35,7 +44,7 @@ class _WalletScreenState extends State<WalletScreen> {
               },
               child: CardComponent(
                 shadow: true,
-                icon: Icons.add,
+                icon: Icons.credit_card,
                 label: 'ADD NEW CARD',
                 description: 'Cards can be for an especific\nevent or all life as credit or debit.',
                 fullCard: true,
@@ -50,7 +59,7 @@ class _WalletScreenState extends State<WalletScreen> {
               },
               child: CardComponent(
                 shadow: false,
-                icon: Icons.credit_card,
+                icon: Icons.delete_outline,
                 label: "Fernando de Moraes",
               ),
             );
@@ -62,7 +71,7 @@ class _WalletScreenState extends State<WalletScreen> {
             },
             child: CardComponent(
               shadow: true,
-              icon: Icons.credit_card,
+              icon: Icons.delete_outline,
               label: "**** **** **** 0000",
             ),
           );

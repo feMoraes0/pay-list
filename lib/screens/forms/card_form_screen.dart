@@ -67,7 +67,7 @@ class _CardFormScreenState extends State<CardFormScreen> {
         title: Text(
           'New Card',
           style: GoogleFonts.lato(
-            fontSize: 26.0,
+            fontSize: 25.0,
             color: Colors.black,
           ),
         ),
