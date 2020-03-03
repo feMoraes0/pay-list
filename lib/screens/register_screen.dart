@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pay_list/components/button_component.dart';
+import 'package:pay_list/components/input_component.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -7,6 +9,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController _nameController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
 
@@ -36,111 +39,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: <Widget>[
                 Container(
                   margin: const EdgeInsets.only(bottom: 30.0),
-                  child: TextField(
-                    controller: this._emailController,
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: 2.0,
-                        ),
-                      ),
-                      labelText: 'Name',
-                      labelStyle: GoogleFonts.lato(
-                        color: Colors.black87,
-                        fontSize: 19.0,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.person,
-                        color: Colors.black,
-                      ),
-                    ),
+                  child: InputComponent(
+                    controller: this._nameController,
+                    label: 'Name',
+                    icon: Icons.person,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 30.0),
-                  child: TextField(
+                  child: InputComponent(
                     controller: this._emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 2.0),
-                      ),
-                      labelText: 'Email',
-                      labelStyle: GoogleFonts.lato(
-                        color: Colors.black87,
-                        fontSize: 19.0,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.email,
-                        color: Colors.black,
-                      ),
-                    ),
+                    label: 'Email',
+                    icon: Icons.email,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(bottom: 25.0),
-                  child: TextField(
+                  child: InputComponent(
                     controller: this._passwordController,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black87,
-                          width: 2.0,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.black87,
-                          width: 2.0,
-                        ),
-                      ),
-                      labelText: 'Password',
-                      labelStyle: GoogleFonts.lato(
-                        color: Colors.black87,
-                        fontSize: 19.0,
-                      ),
-                      prefixIcon: Icon(
-                        Icons.vpn_key,
-                        color: Colors.black87,
-                      ),
-                    ),
+                    label: 'Password',
+                    icon: Icons.vpn_key,
                   ),
                 ),
-                FlatButton(
-                  padding: const EdgeInsets.all(1.0),
-                  color: Colors.amber[600],
-                  splashColor: Colors.white54,
+                ButtonComponent(
                   onPressed: () {},
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    alignment: Alignment.center,
-                    width: size.width,
-                    height: 45.0,
-                    child: Text(
-                      'Register',
-                      style: GoogleFonts.lato(
-                        fontSize: 19.0,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ),
+                  screenWidth: size.width,
+                  label: 'Register',
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(
@@ -170,28 +94,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ],
                   ),
                 ),
-                FlatButton(
-                  padding: const EdgeInsets.all(1.0),
-                  color: Colors.amber[600],
-                  splashColor: Colors.white54,
+                ButtonComponent(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, 'login');
                   },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    alignment: Alignment.center,
-                    width: size.width,
-                    height: 45.0,
-                    child: Text(
-                      'Login',
-                      style: GoogleFonts.lato(
-                        fontSize: 19.0,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ),
+                  screenWidth: size.width,
+                  label: 'Login',
                 ),
               ],
             ),
