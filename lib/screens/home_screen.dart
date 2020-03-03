@@ -71,9 +71,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 40.0,
                           ),
                         ),
-                        Icon(
-                          Icons.add,
-                          size: 38.0,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, 'payment_form');
+                          },
+                          child: Icon(
+                            Icons.add,
+                            size: 38.0,
+                          ),
                         ),
                       ],
                     ),

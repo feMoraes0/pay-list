@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pay_list/screens/app.dart';
 import 'package:pay_list/screens/delete.dart';
+import 'package:pay_list/screens/forms/payments_form_screen.dart';
 import 'package:pay_list/screens/home_screen.dart';
 import 'package:pay_list/screens/login_screen.dart';
 import 'package:pay_list/screens/new_payments.dart';
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
         'register': (context) => RegisterScreen(),
         'home': (context) => HomeScreen(),
         'wallet': (context) => WalletScreen(),
+
+        'payment_form': (context) => PaymentsFormScreen(),
       },
       home: LoginScreen(),
     );
