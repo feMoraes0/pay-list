@@ -19,8 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.amberAccent,
         title: Text(
           'Login',
-          style: GoogleFonts.mallanna(
-            fontSize: 32.0,
+          style: GoogleFonts.lato(
+            fontSize: 26.0,
             color: Colors.black,
           ),
         ),
@@ -48,9 +48,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderSide: BorderSide(color: Colors.black, width: 2.0),
                     ),
                     labelText: 'Email',
-                    labelStyle: GoogleFonts.mallanna(
+                    labelStyle: GoogleFonts.lato(
                       color: Colors.black87,
-                      fontSize: 21.0,
+                      fontSize: 19.0,
                     ),
                     prefixIcon: Icon(
                       Icons.person,
@@ -78,9 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ), 
                     ),
                     labelText: 'Password',
-                    labelStyle: GoogleFonts.mallanna(
+                    labelStyle: GoogleFonts.lato(
                       color: Colors.black87,
-                      fontSize: 21.0,
+                      fontSize: 19.0,
                     ),
                     prefixIcon: Icon(
                       Icons.vpn_key,
@@ -105,8 +105,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 45.0,
                   child: Text(
                     'Login',
-                    style: GoogleFonts.mallanna(
-                      fontSize: 21.0,
+                    style: GoogleFonts.lato(
+                      fontSize: 19.0,
                       color: Colors.black87,
                     ),
                   ),
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Text(
                       'OR',
-                      style: GoogleFonts.mallanna(
+                      style: GoogleFonts.lato(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -156,8 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 45.0,
                   child: Text(
                     'Register',
-                    style: GoogleFonts.mallanna(
-                      fontSize: 21.0,
+                    style: GoogleFonts.lato(
+                      fontSize: 19.0,
                       color: Colors.black87,
                     ),
                   ),

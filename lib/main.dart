@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Pay List',
       theme: ThemeData(
         brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.amber,
         primaryColor: Colors.indigoAccent,
       ),
       darkTheme: ThemeData(
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         'home': (context) => HomeScreen(),
         'wallet': (context) => Wallet(),
       },
-      home: Wallet(),
+      home: LoginScreen(),
     );
   }
 }

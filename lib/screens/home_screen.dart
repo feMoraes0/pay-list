@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/screens/chart.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: Text(
                       'Total Balance',
-                      style: TextStyle(
+                      style: GoogleFonts.lato(
                         fontSize: 20.0,
                       ),
                     ),
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: <Widget>[
                         Text(
                           '0000.00',
-                          style: TextStyle(
+                          style: GoogleFonts.lato(
                             fontSize: 40.0,
                           ),
                         ),
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: <Widget>[
                       Text(
                         'Expenses',
-                        style: TextStyle(
+                        style: GoogleFonts.lato(
                           fontSize: 25.0,
                         ),
                       ),

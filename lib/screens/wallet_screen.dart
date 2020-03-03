@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:google_fonts/google_fonts.dart';
 
 class Wallet extends StatefulWidget {
   @override
@@ -6,16 +7,27 @@ class Wallet extends StatefulWidget {
 }
 
 class _WalletState extends State<Wallet> {
-  var cards = [];
+  List<String> cards = ['', ''];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber,
+      appBar: AppBar(
+        title: Text(
+          'Wallet',
+          style: GoogleFonts.lato(
+            fontSize: 26.0,
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: Colors.amber,
+        elevation: 0.0,
+      ),
       body: ListView.builder(
         itemCount: this.cards.length + 1,
         itemBuilder: (BuildContext context, int index) {
-          if (this.cards.length == 0 || index == this.cards.length + 1) {
+          if (this.cards.length == 0 || index == this.cards.length) {
             return GestureDetector(
               onTap: () {},
               child: NewCard(
@@ -56,12 +68,13 @@ class CardDivision extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Container(
       height: 140,
       padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
       decoration: (this.shadow)
           ? BoxDecoration(
-              color: Colors.white,
+              color: theme.backgroundColor,
               boxShadow: [
                 BoxShadow(
                   color: Colors.black45,
@@ -71,7 +84,7 @@ class CardDivision extends StatelessWidget {
               ],
             )
           : BoxDecoration(
-              color: Colors.white,
+              color: theme.backgroundColor,
             ),
       child: Card(icon: this.icon, label: this.label),
     );
@@ -93,8 +106,8 @@ class Card extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Colors.blueAccent,
-            Colors.lightBlueAccent,
+            Colors.deepPurple,
+            Colors.deepOrange,
           ],
         ),
         borderRadius: BorderRadius.only(
@@ -109,13 +122,13 @@ class Card extends StatelessWidget {
           Icon(
             this.icon,
             size: 25.0,
-            color: Theme.of(context).backgroundColor,
+            color: Colors.white,
           ),
           Text(
             this.label,
-            style: TextStyle(
+            style: GoogleFonts.lato(
               fontSize: 23.0,
-              color: Theme.of(context).backgroundColor,
+              color: Colors.white,
             ),
           ),
         ],
@@ -154,10 +167,7 @@ class NewCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Colors.orange,
-              Colors.redAccent,
-            ],
+            colors: [Colors.deepPurple, Colors.deepOrange],
           ),
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
@@ -178,18 +188,18 @@ class NewCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "ADD NEW CARD",
-                  style: TextStyle(
+                  style: GoogleFonts.lato(
                     fontSize: 23.0,
                     color: Colors.white,
                   ),
                 ),
                 Text(
-                  "Cards can be for an especific\nevent or all life as credit or debit",
+                  "Cards can be for an especific\nevent or all life as credit or debit.",
                   maxLines: 5,
                   overflow: TextOverflow.clip,
                   textAlign: TextAlign.end,
-                  style: TextStyle(
-                    fontSize: 16.0,
+                  style: GoogleFonts.lato(
+                    fontSize: 18.0,
                     color: Colors.white,
                   ),
                 ),

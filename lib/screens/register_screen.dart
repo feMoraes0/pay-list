@@ -20,8 +20,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.amberAccent,
         title: Text(
           'Register',
-          style: GoogleFonts.mallanna(
-            fontSize: 32.0,
+          style: GoogleFonts.lato(
+            fontSize: 26.0,
             color: Colors.black,
           ),
         ),
@@ -53,9 +53,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       labelText: 'Name',
-                      labelStyle: GoogleFonts.mallanna(
+                      labelStyle: GoogleFonts.lato(
                         color: Colors.black87,
-                        fontSize: 21.0,
+                        fontSize: 19.0,
                       ),
                       prefixIcon: Icon(
                         Icons.person,
@@ -80,9 +80,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         borderSide: BorderSide(color: Colors.black, width: 2.0),
                       ),
                       labelText: 'Email',
-                      labelStyle: GoogleFonts.mallanna(
+                      labelStyle: GoogleFonts.lato(
                         color: Colors.black87,
-                        fontSize: 21.0,
+                        fontSize: 19.0,
                       ),
                       prefixIcon: Icon(
                         Icons.email,
@@ -110,9 +110,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       labelText: 'Password',
-                      labelStyle: GoogleFonts.mallanna(
+                      labelStyle: GoogleFonts.lato(
                         color: Colors.black87,
-                        fontSize: 21.0,
+                        fontSize: 19.0,
                       ),
                       prefixIcon: Icon(
                         Icons.vpn_key,
@@ -135,8 +135,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 45.0,
                     child: Text(
                       'Register',
-                      style: GoogleFonts.mallanna(
-                        fontSize: 21.0,
+                      style: GoogleFonts.lato(
+                        fontSize: 19.0,
                         color: Colors.black87,
                       ),
                     ),
@@ -157,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       Text(
                         'OR',
-                        style: GoogleFonts.mallanna(
+                        style: GoogleFonts.lato(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -186,8 +186,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 45.0,
                     child: Text(
                       'Login',
-                      style: GoogleFonts.mallanna(
-                        fontSize: 21.0,
+                      style: GoogleFonts.lato(
+                        fontSize: 19.0,
                         color: Colors.black87,
                       ),
                     ),
