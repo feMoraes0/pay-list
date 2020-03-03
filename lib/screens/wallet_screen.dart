@@ -30,7 +30,9 @@ class _WalletScreenState extends State<WalletScreen> {
         itemBuilder: (BuildContext context, int index) {
           if (this.cards.length == 0 || index == this.cards.length) {
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, 'card_form');
+              },
               child: CardComponent(
                 shadow: true,
                 icon: Icons.add,
