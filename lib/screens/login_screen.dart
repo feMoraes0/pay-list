@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.amber[600],
                 splashColor: Colors.white54,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, 'home');
+                  Navigator.pushReplacementNamed(context, 'wallet');
                 },
                 child: Container(
                   decoration: BoxDecoration(

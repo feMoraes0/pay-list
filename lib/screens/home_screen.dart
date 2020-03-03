@@ -8,11 +8,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double containerMarginTop = 315.0;
+  bool expanded;
+
+  void initState() {
+    this.expanded = false;
+    super.initState();
+  }
 
   void updateMarginTop() {
     setState(() {
-      containerMarginTop = (containerMarginTop == 315.0) ? 0.0 : 315.0;
+      expanded = !this.expanded;
     });
   }
 
@@ -20,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.amber,
       body: SafeArea(
         bottom: false,
         child: Stack(
@@ -29,12 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0, left: 20.0),
-                    child: Icon(
-                      Icons.arrow_back,
-                      size: 30.0,
-                      color: Colors.black,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10.0, left: 20.0),
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 30.0,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   Container(
@@ -80,12 +90,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
-                child: LineChartSample2()
+                child: LineChartSample2(),
               ),
             ),
             AnimatedContainer(
-              duration: Duration(milliseconds: 500),
-              margin: EdgeInsets.only(top: this.containerMarginTop),
+              duration: Duration(milliseconds: 450),
+              margin: EdgeInsets.only(top: (this.expanded) ? 0.0 : 315.0),
               height: size.height,
               width: size.width,
               padding: const EdgeInsets.only(
@@ -94,36 +104,110 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 20.0,
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: (this.expanded) ? Colors.amber : Colors.white,
               ),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Expenses',
-                        style: GoogleFonts.lato(
-                          fontSize: 25.0,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Expenses',
+                          style: GoogleFonts.lato(
+                            fontSize: 25.0,
+                          ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: this.updateMarginTop,
-                        child: Icon(
-                          (this.containerMarginTop == 310.0)
-                              ? Icons.expand_less
-                              : Icons.expand_more,
-                          size: 32.0,
+                        GestureDetector(
+                          onTap: this.updateMarginTop,
+                          child: Icon(
+                            (this.expanded)
+                                ? Icons.expand_more
+                                : Icons.expand_less,
+                            size: 32.0,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: ListView.builder(
                       itemCount: 40,
                       itemBuilder: (context, index) {
                         return Container(
-                          child: Text('1'),
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color: (this.expanded)
+                                        ? Colors.black
+                                        : Colors.white,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                padding: const EdgeInsets.all(25.0),
+                                margin: const EdgeInsets.only(right: 10.0),
+                                child: Icon(
+                                  Icons.shopping_cart,
+                                  size: 30.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Expanded(
+                                child: SizedBox(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text(
+                                            'Title added',
+                                            style: GoogleFonts.lato(
+                                              fontSize: 21.0,
+                                            ),
+                                          ),
+                                          Text(
+                                            '0.00',
+                                            style: GoogleFonts.lato(
+                                              fontSize: 21.0,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: <Widget>[
+                                          Text(
+                                            'Food',
+                                            style: GoogleFonts.lato(
+                                              fontSize: 16.0,
+                                            ),
+                                          ),
+                                          Text(
+                                            '00/00/00',
+                                            style: GoogleFonts.lato(
+                                              fontSize: 16.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       },
                     ),

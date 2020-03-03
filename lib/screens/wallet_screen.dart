@@ -1,12 +1,12 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 
-class Wallet extends StatefulWidget {
+class WalletScreen extends StatefulWidget {
   @override
-  _WalletState createState() => _WalletState();
+  _WalletScreenState createState() => _WalletScreenState();
 }
 
-class _WalletState extends State<Wallet> {
+class _WalletScreenState extends State<WalletScreen> {
   List<String> cards = ['', ''];
 
   @override
@@ -39,14 +39,14 @@ class _WalletState extends State<Wallet> {
           if (index == 0) {
             return CardDivision(
               shadow: false,
-              icon: Icons.person_outline,
+              icon: Icons.credit_card,
               label: "Fernando de Moraes",
             );
           }
 
           return CardDivision(
             shadow: true,
-            icon: Icons.account_balance_wallet,
+            icon: Icons.credit_card,
             label: "**** **** **** 0000",
           );
         },
@@ -99,39 +99,44 @@ class Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            Colors.deepPurple,
-            Colors.deepOrange,
-          ],
-        ),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10.0),
-          topRight: Radius.circular(10.0),
-        ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Icon(
-            this.icon,
-            size: 25.0,
-            color: Colors.white,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, 'home');
+      },
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.deepPurple,
+              Colors.deepOrange,
+            ],
           ),
-          Text(
-            this.label,
-            style: GoogleFonts.lato(
-              fontSize: 23.0,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Icon(
+              this.icon,
+              size: 25.0,
               color: Colors.white,
             ),
-          ),
-        ],
+            Text(
+              this.label,
+              style: GoogleFonts.lato(
+                fontSize: 23.0,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
