@@ -1,5 +1,4 @@
-import "package:flutter/material.dart";
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 import 'package:pay_list/components/card_component.dart';
 
 class WalletScreen extends StatefulWidget {
@@ -12,27 +11,26 @@ class _WalletScreenState extends State<WalletScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
         title: Text(
           'Wallet',
-          style: GoogleFonts.lato(
-            fontSize: 25.0,
-            color: Colors.black,
-          ),
         ),
         actions: <Widget>[
           GestureDetector(
             onTap: () {},
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
-              child: Icon(Icons.exit_to_app, size: 28.0, color: Colors.black,),
+              child: Icon(
+                Icons.exit_to_app,
+                size: 28.0,
+                color: Colors.black,
+              ),
             ),
           )
         ],
-        backgroundColor: Colors.amber,
-        elevation: 0.0,
       ),
       body: ListView.builder(
         itemCount: this.cards.length + 1,
@@ -46,7 +44,8 @@ class _WalletScreenState extends State<WalletScreen> {
                 shadow: true,
                 icon: Icons.credit_card,
                 label: 'ADD NEW CARD',
-                description: 'Cards can be for an especific\nevent or all life as credit or debit.',
+                description:
+                    'Cards can be for an especific\nevent or all life as credit or debit.',
                 fullCard: true,
               ),
             );
@@ -60,7 +59,7 @@ class _WalletScreenState extends State<WalletScreen> {
               child: CardComponent(
                 shadow: false,
                 icon: Icons.delete_outline,
-                label: "Fernando de Moraes",
+                label: 'Fernando de Moraes',
               ),
             );
           }
@@ -72,7 +71,7 @@ class _WalletScreenState extends State<WalletScreen> {
             child: CardComponent(
               shadow: true,
               icon: Icons.delete_outline,
-              label: "**** **** **** 0000",
+              label: '**** **** **** 0000',
             ),
           );
         },
