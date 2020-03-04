@@ -1,6 +1,4 @@
-import 'package:direct_select_flutter/direct_select_container.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/components/button_component.dart';
 import 'package:pay_list/components/input_component.dart';
 
