@@ -9,8 +9,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: theme.backgroundColor,
       body: SafeArea(
         child: Container(
           height: size.height,
@@ -24,12 +25,17 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: size.width / 3.5,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/launcher/logo.png'),
+                    image: AssetImage(
+                      'assets/launcher/logo.png',
+                    ),
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 50.0, top: 10.0),
+                padding: const EdgeInsets.only(
+                  bottom: 50.0,
+                  top: 10.0,
+                ),
                 child: Text(
                   'Payments',
                   style: TextStyle(
@@ -41,6 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Container(
                 child: CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
+                  strokeWidth: 3.0,
                 ),
               )
             ],
