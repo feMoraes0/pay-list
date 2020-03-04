@@ -16,17 +16,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.amberAccent,
         title: Text(
           'Register',
-          style: GoogleFonts.lato(
-            fontSize: 26.0,
-            color: Colors.black,
-          ),
         ),
       ),
       body: SafeArea(
@@ -34,7 +29,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(30.0),
-            color: Colors.amberAccent,
             child: Column(
               children: <Widget>[
                 Container(
