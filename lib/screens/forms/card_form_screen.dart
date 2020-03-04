@@ -17,7 +17,6 @@ class CardFormScreen extends StatefulWidget {
 
 class _CardFormScreenState extends State<CardFormScreen> {
   TextEditingController _emailController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
   
   Item selectedUser;
   List<Item> users = <Item>[
