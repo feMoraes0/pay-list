@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatelessWidget {
-  _getToken(BuildContext context) async {
+  _verifyToken(BuildContext context) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    String token = preferences.getString('token') ?? null;
-    print(token);
-    if(token == null) {
+    String token = preferences.getString('token');
+    int userId = preferences.getInt('user_id');
+    if(token == null || userId == null) {
       Navigator.pushReplacementNamed(context, 'register');
       return;
     }
-
-    Navigator.pushReplacementNamed(context, 'login');
-    // return 'other';
-    // tenta login
-    // se sucesso = wallet screen
-    // se falhar = login screen
+    Navigator.pushReplacementNamed(context, 'wallet');
   }
 
   @override
@@ -23,7 +18,7 @@ class SplashScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     ThemeData theme = Theme.of(context);
 
-    this._getToken(context);
+    this._verifyToken(context);
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,

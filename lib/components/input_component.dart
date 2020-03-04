@@ -20,7 +20,7 @@ class InputComponent extends StatelessWidget {
     return TextField(
       controller: this.controller,
       keyboardType: this.keyboard,
-      obscureText: true,
+      obscureText: (keyboard == TextInputType.visiblePassword) ? true : false,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
