@@ -3,12 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class InputComponent extends StatelessWidget {
   final TextEditingController controller;
+  final TextInputType keyboard;
   final String label;
   final IconData icon;
 
   const InputComponent({
     Key key,
     @required this.controller,
+    @required this.keyboard,
     @required this.label,
     @required this.icon,
   }) : super(key: key);
@@ -17,6 +19,7 @@ class InputComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: this.controller,
+      keyboardType: this.keyboard,
       obscureText: true,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(

@@ -77,6 +77,7 @@ class _PaymentsFormScreenState extends State<PaymentsFormScreen> {
                 margin: const EdgeInsets.only(bottom: 30.0),
                 child: InputComponent(
                   controller: this._titleController,
+                  keyboard: TextInputType.text,
                   label: 'Title',
                   icon: Icons.text_fields,
                 ),
@@ -85,6 +86,7 @@ class _PaymentsFormScreenState extends State<PaymentsFormScreen> {
                 margin: const EdgeInsets.only(bottom: 25.0),
                 child: InputComponent(
                   controller: this._valueController,
+                  keyboard: TextInputType.numberWithOptions(decimal: true),
                   label: 'Value',
                   icon: Icons.attach_money,
                 ),

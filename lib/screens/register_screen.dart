@@ -35,6 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   margin: const EdgeInsets.only(bottom: 30.0),
                   child: InputComponent(
                     controller: this._nameController,
+                    keyboard: TextInputType.text,
                     label: 'Name',
                     icon: Icons.person,
                   ),
@@ -43,6 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   margin: const EdgeInsets.only(bottom: 30.0),
                   child: InputComponent(
                     controller: this._emailController,
+                    keyboard: TextInputType.emailAddress,
                     label: 'Email',
                     icon: Icons.email,
                   ),
@@ -51,6 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   margin: const EdgeInsets.only(bottom: 25.0),
                   child: InputComponent(
                     controller: this._passwordController,
+                    keyboard: TextInputType.visiblePassword,
                     label: 'Password',
                     icon: Icons.vpn_key,
                   ),

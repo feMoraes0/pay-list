@@ -41,6 +41,7 @@ class _CardFormScreenState extends State<CardFormScreen> {
                 margin: const EdgeInsets.only(bottom: 30.0),
                 child: InputComponent(
                   controller: this._titleController,
+                  keyboard: TextInputType.text,
                   label: 'Title',
                   icon: Icons.text_fields,
                 ),
