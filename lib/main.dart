@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pay_list/screens/forms/card_form_screen.dart';
 import 'package:pay_list/screens/forms/payments_form_screen.dart';
 import 'package:pay_list/screens/home_screen.dart';
@@ -16,8 +17,18 @@ class MyApp extends StatelessWidget {
       title: 'Pay List',
       theme: ThemeData(
         brightness: Brightness.light,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.amberAccent,
         primaryColor: Colors.indigoAccent,
+        appBarTheme: AppBarTheme(
+          color: Colors.amberAccent,
+          elevation: 0.0,
+          textTheme: TextTheme(
+            title: GoogleFonts.lato(
+              fontSize: 26.0,
+              color: Colors.black,
+            ),
+          ),
+        ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
@@ -29,7 +40,6 @@ class MyApp extends StatelessWidget {
         'register': (context) => RegisterScreen(),
         'home': (context) => HomeScreen(),
         'wallet': (context) => WalletScreen(),
-
         'payment_form': (context) => PaymentsFormScreen(),
         'card_form': (context) => CardFormScreen(),
       },

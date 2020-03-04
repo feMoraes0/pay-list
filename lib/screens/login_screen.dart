@@ -15,23 +15,17 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Scaffold(
+      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.amberAccent,
-        title: Text(
-          'Login',
-          style: GoogleFonts.lato(
-            fontSize: 26.0,
-            color: Colors.black,
-          ),
-        ),
+        title: Text('Login'),
       ),
       body: SafeArea(
         bottom: false,
         child: Container(
           padding: const EdgeInsets.all(30.0),
-          color: Colors.amberAccent,
+          color: theme.backgroundColor,
           child: Column(
             children: <Widget>[
               Container(
