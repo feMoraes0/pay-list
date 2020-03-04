@@ -5,6 +5,7 @@ import 'package:pay_list/screens/forms/payments_form_screen.dart';
 import 'package:pay_list/screens/home_screen.dart';
 import 'package:pay_list/screens/login_screen.dart';
 import 'package:pay_list/screens/register_screen.dart';
+import 'package:pay_list/screens/splash_screen.dart';
 import 'package:pay_list/screens/wallet_screen.dart';
 
 void main() => runApp(MyApp());
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         'payment_form': (context) => PaymentsFormScreen(),
         'card_form': (context) => CardFormScreen(),
       },
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

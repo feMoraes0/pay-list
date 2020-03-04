@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
+  shared_preferences: ^0.5.6+2
   fl_chart: ^0.8.1
   google_fonts: ^0.3.9
   flutter:
