@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  void updateMarginTop() {
+  void expand() {
     setState(() {
       expanded = !this.expanded;
     });
@@ -24,11 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    ThemeData theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: theme.backgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
-        elevation: 0.0,
         leading: AnimatedOpacity(
           duration: Duration(milliseconds: 450),
           opacity: (!this.expanded) ? 1 : 0,
@@ -54,10 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
           opacity: (this.expanded) ? 1 : 0,
           child: Text(
             'Expenses',
-            style: GoogleFonts.lato(
-              fontSize: 25.0,
-              color: Colors.black,
-            ),
           ),
         ),
         actions: <Widget>[
@@ -66,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             opacity: (this.expanded) ? 1 : 0,
             child: GestureDetector(
               onTap: () {
-                if (this.expanded) this.updateMarginTop();
+                if (this.expanded) this.expand();
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 20.0),
@@ -107,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          '0000.00',
+                          '0.00',
                           style: GoogleFonts.lato(
                             fontSize: 40.0,
                           ),
@@ -150,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 20.0,
               ),
               decoration: BoxDecoration(
-                color: (this.expanded) ? Colors.amberAccent : Colors.white,
+                color: (this.expanded) ? theme.backgroundColor : Colors.white,
               ),
               child: Column(
                 children: <Widget>[
@@ -167,11 +162,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: this.updateMarginTop,
+                                onTap: this.expand,
                                 child: Icon(
-                                  (this.expanded)
-                                      ? Icons.expand_more
-                                      : Icons.expand_less,
+                                  Icons.expand_less,
                                   size: 32.0,
                                 ),
                               ),
@@ -190,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.amberAccent,
+                                  color: theme.backgroundColor,
                                   borderRadius: BorderRadius.circular(10.0),
                                   border: Border.all(
                                     color: (this.expanded)
