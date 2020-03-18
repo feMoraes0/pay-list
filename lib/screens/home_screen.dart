@@ -45,11 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        title: AnimatedOpacity(
-          duration: Duration(milliseconds: 450),
-          opacity: (this.expanded) ? 1 : 0,
-          child: Text(
-            'Expenses',
+        title: Center(
+          child: AnimatedOpacity(
+            duration: Duration(milliseconds: 450),
+            opacity: (this.expanded) ? 1 : 0,
+            child: Text(
+              'Expenses',
+            ),
           ),
         ),
         actions: <Widget>[

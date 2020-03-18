@@ -18,7 +18,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _passwordController = new TextEditingController();
 
   _loginUser(BuildContext context) async {
-    
     String email = this._emailController.text;
     String password = this._passwordController.text;
 
@@ -44,15 +43,15 @@ class _LoginScreenState extends State<LoginScreen> {
     int statusCode = response.statusCode;
     Map body = json.decode(response.body);
 
-    if(statusCode == 201) {
+    if (statusCode == 201) {
       SharedPreferences preferences = await SharedPreferences.getInstance();
       preferences.setString('token', body['token']);
-      preferences.setInt('user_id',  body['user']['id']);
+      preferences.setInt('user_id', body['user']['id']);
       TipDialogHelper.success('Saved with success.');
       await new Future.delayed(new Duration(seconds: 3));
       TipDialogHelper.dismiss();
       Navigator.pushReplacementNamed(context, 'wallet');
-    } else if(statusCode == 404) {
+    } else if (statusCode == 404) {
       TipDialogHelper.fail('User not found.');
       await new Future.delayed(new Duration(seconds: 3));
       TipDialogHelper.dismiss();
@@ -69,7 +68,9 @@ class _LoginScreenState extends State<LoginScreen> {
         Scaffold(
           backgroundColor: theme.backgroundColor,
           appBar: AppBar(
-            title: Text('Login'),
+            title: Center(
+              child: Text('Login'),
+            ),
           ),
           body: SafeArea(
             bottom: false,

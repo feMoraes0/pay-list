@@ -27,8 +27,10 @@ class _CardFormScreenState extends State<CardFormScreen> {
             color: Colors.black,
           ),
         ),
-        title: Text(
-          'New Card',
+        title: Center(
+          child: Text(
+            'New Card',
+          ),
         ),
       ),
       body: SafeArea(

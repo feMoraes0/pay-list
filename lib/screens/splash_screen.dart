@@ -7,7 +7,7 @@ class SplashScreen extends StatelessWidget {
     String token = preferences.getString('token');
     int userId = preferences.getInt('user_id');
     if(token == null || userId == null) {
-      Navigator.pushReplacementNamed(context, 'register');
+      Navigator.pushReplacementNamed(context, 'login');
       return;
     }
     Navigator.pushReplacementNamed(context, 'wallet');

@@ -82,8 +82,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
         Scaffold(
           backgroundColor: theme.backgroundColor,
           appBar: AppBar(
-            title: Text(
-              'Register',
+            title: Center(
+              child: Text(
+                'Register',
+              ),
             ),
           ),
           body: SafeArea(

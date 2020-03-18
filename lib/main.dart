@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Colors.amberAccent,
           elevation: 0.0,
-          textTheme: TextTheme(
+          textTheme: TextTheme(  
             title: GoogleFonts.lato(
               fontSize: 26.0,
               color: Colors.black,

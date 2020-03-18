@@ -63,8 +63,10 @@ class _PaymentsFormScreenState extends State<PaymentsFormScreen> {
             color: Colors.black,
           ),
         ),
-        title: Text(
-          'New Payment',
+        title: Center(
+          child: Text(
+            'New Payment',
+          ),
         ),
       ),
       body: SafeArea(

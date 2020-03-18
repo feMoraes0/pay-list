@@ -24,8 +24,10 @@ class _WalletScreenState extends State<WalletScreen> {
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       appBar: AppBar(
-        title: Text(
-          'Wallet',
+        title: Center(
+          child: Text(
+            'Wallet',
+          ),
         ),
         actions: <Widget>[
           GestureDetector(
