@@ -191,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 2.0,
                                   ),
                                 ),
-                                padding: const EdgeInsets.all(25.0),
+                                padding: const EdgeInsets.all(15.0),
                                 margin: const EdgeInsets.only(right: 10.0),
                                 child: Icon(
                                   Icons.shopping_cart,
