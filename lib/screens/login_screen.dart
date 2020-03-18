@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController _passwordController = new TextEditingController();
 
   _loginUser(BuildContext context) async {
+    
     String email = this._emailController.text;
     String password = this._passwordController.text;
 
@@ -32,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
+    FocusScope.of(context).unfocus();
     TipDialogHelper.loading("Loading");
 
     var response = await http.post(

@@ -21,6 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool searching = false;
 
   _registerUser(BuildContext context) async {
+    
     String name = this._nameController.text;
     String email = this._emailController.text;
     String password = this._passwordController.text;
@@ -40,7 +41,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       await Future.delayed(Duration(seconds: 2));
       return;
     }
-
+    
+    FocusScope.of(context).unfocus();
     TipDialogHelper.loading("Loading");
 
     var response = await http.post(
