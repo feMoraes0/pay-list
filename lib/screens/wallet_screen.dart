@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pay_list/components/card_component.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WalletScreen extends StatefulWidget {
   @override
@@ -8,6 +9,14 @@ class WalletScreen extends StatefulWidget {
 
 class _WalletScreenState extends State<WalletScreen> {
   List<String> cards = ['', ''];
+
+
+  void logout(BuildContext context) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.remove('token');
+    sharedPreferences.remove('id');
+    Navigator.pushReplacementNamed(context, 'login');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +29,7 @@ class _WalletScreenState extends State<WalletScreen> {
         ),
         actions: <Widget>[
           GestureDetector(
-            onTap: () {},
+            onTap: () => this.logout(context),
             child: Padding(
               padding: const EdgeInsets.only(right: 15.0),
               child: Icon(
