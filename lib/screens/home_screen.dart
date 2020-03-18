@@ -28,23 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       appBar: AppBar(
-        leading: AnimatedOpacity(
-          duration: Duration(milliseconds: 450),
-          opacity: (!this.expanded) ? 1 : 0,
-          child: GestureDetector(
-            onTap: () {
-              if (!this.expanded) Navigator.pop(context);
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 10.0,
-                left: 20.0,
-              ),
-              child: Icon(
-                Icons.arrow_back,
-                size: 30.0,
-                color: Colors.black,
-              ),
+        leading: GestureDetector(
+          onTap: () {
+            if (!this.expanded) Navigator.pop(context);
+            if(this.expanded) Navigator.pushNamed(context, 'payment_form');
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 10.0,
+              left: 20.0,
+            ),
+            child: Icon(
+              (!this.expanded) ? Icons.arrow_back : Icons.add,
+              size: 30.0,
+              color: Colors.black,
             ),
           ),
         ),
